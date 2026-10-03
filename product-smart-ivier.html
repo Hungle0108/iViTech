@@ -45,6 +45,7 @@
     .navbar { display: flex; align-items: center; justify-content: space-between; height: 64px; }
     .brand-logo-img { height: 36px; width: auto; }
     .nav-links { display: flex; list-style: none; gap: 4px; }
+    .nav-item { position: relative; display: flex; align-items: center; }
     .nav-link { padding: 8px 14px; font-size: 0.88rem; font-weight: 600; color: var(--text-body); border-radius: var(--radius-sm); transition: var(--transition); }
     .nav-link:hover { background: var(--blue-tint); color: var(--primary-blue); }
     .btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; border-radius: var(--radius-full); border: none; cursor: pointer; transition: var(--transition); text-decoration: none; line-height: 1; }
@@ -446,21 +447,121 @@
   <!-- Header -->
   <header class="main-header">
     <div class="container">
-      <nav class="navbar">
-        <a href="index.html" class="brand-logo-wrap">
+            <nav class="navbar" aria-label="Điều hướng chính">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo-wrap" aria-label="Trang chủ iViTech">
           <img src="brand/ivitech-primary.png" alt="iViTech" class="brand-logo-img">
         </a>
-        <ul class="nav-links">
-          <li><a href="index.html#ecosystem" class="nav-link">Hệ sinh thái (4 Lớp)</a></li>
-          <li><a href="index.html#solutions" class="nav-link">Giải pháp</a></li>
-          <li><a href="index.html#about" class="nav-link">Triết lý iViTech</a></li>
-          <li><a href="index.html#contact" class="nav-link">Liên hệ</a></li>
+
+        <!-- Desktop Navigation with Mega Dropdown -->
+        <ul class="nav-links" role="menubar">
+          <li class="nav-item" role="none"><a href="index.html#roadmap" class="nav-link" role="menuitem">Giải pháp theo vai trò</a></li>
+
+          <li class="nav-item" role="none">
+            <a href="index.html#ecosystem" class="nav-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              <span>Hệ sinh thái (4 lớp)</span>
+              <i class="fas fa-chevron-down" style="font-size:0.75rem;"></i>
+            </a>
+
+            <!-- Mega Dropdown -->
+            <div class="mega-dropdown">
+              <div class="mega-grid-4">
+                <!-- Layer 1 -->
+                <div class="mega-layer-col">
+                  <div class="mega-layer-title">
+                    <i class="fas fa-database"></i>
+                    <span>01. Nền tảng dữ liệu số</span>
+                  </div>
+                  <ul class="mega-sub-links">
+                    <li class="mega-sub-item">
+                      <a href="product-digitization.html">
+                        <div class="mega-item-name">Chỉnh lý và số hóa hồ sơ</div>
+                        <div class="mega-item-desc">Từ kho tài liệu thành tài sản dữ liệu số khai thác được</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Layer 2 -->
+                <div class="mega-layer-col">
+                  <div class="mega-layer-title">
+                    <i class="fas fa-diagram-project"></i>
+                    <span>02. Vận hành số</span>
+                  </div>
+                  <ul class="mega-sub-links">
+                    <li class="mega-sub-item">
+                      <a href="product-smart-ivier.html">
+                        <div class="mega-item-name">Smart iVier <span class="badge-hot">AI Công vụ</span></div>
+                        <div class="mega-item-desc">1 nền tri thức, 3 trợ lý chuyên năng hỗ trợ cán bộ</div>
+                      </a>
+                    </li>
+                    <li class="mega-sub-item">
+                      <a href="product-ivihrm.html">
+                        <div class="mega-item-name">iViHRM</div>
+                        <div class="mega-item-desc">Quản trị nhân sự chuẩn hóa ứng dụng AI OCR</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Layer 3 -->
+                <div class="mega-layer-col">
+                  <div class="mega-layer-title">
+                    <i class="fas fa-laptop"></i>
+                    <span>03. Môi trường học tập số</span>
+                  </div>
+                  <ul class="mega-sub-links">
+                    <li class="mega-sub-item">
+                      <a href="product-smart-study-2.html">
+                        <div class="mega-item-name">Smart Study 2</div>
+                        <div class="mega-item-desc">Máy tính bảng học tập chuyên dụng cho học sinh</div>
+                      </a>
+                    </li>
+                    <li class="mega-sub-item">
+                      <a href="product-interactive-displays.html">
+                        <div class="mega-item-name">Màn hình tương tác</div>
+                        <div class="mega-item-desc">Trình chiếu & chạm đa điểm cho lớp học số</div>
+                      </a>
+                    </li>
+                    <li class="mega-sub-item">
+                      <a href="product-nexta.html">
+                        <div class="mega-item-name">Ứng dụng Nexta</div>
+                        <div class="mega-item-desc">Học liệu số kết nối gia đình & nhà trường</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Layer 4 -->
+                <div class="mega-layer-col">
+                  <div class="mega-layer-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>04. Năng lực số con người</span>
+                  </div>
+                  <ul class="mega-sub-links">
+                    <li class="mega-sub-item">
+                      <a href="product-ivivi.html">
+                        <div class="mega-item-name">iViVi <span class="badge-hot">20/80</span></div>
+                        <div class="mega-item-desc">Ngoại ngữ, công dân số, AI & robotics thực hành</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item" role="none"><a href="index.html#case-studies" class="nav-link" role="menuitem">Kết quả thực tế</a></li>
+          <li class="nav-item" role="none"><a href="index.html#process" class="nav-link" role="menuitem">Quy trình</a></li>
+          <li class="nav-item" role="none"><a href="index.html#about" class="nav-link" role="menuitem">Về iViTech</a></li>
+          <li class="nav-item" role="none"><a href="index.html#faq" class="nav-link" role="menuitem">Hỏi đáp</a></li>
         </ul>
+
         <div style="display:flex;align-items:center;gap:12px;">
           <a href="index.html#contact" class="btn btn-primary btn-sm">
-            <i class="fas fa-paper-plane"></i> Trao đổi cùng iViTech
+            <i class="fas fa-paper-plane"></i> Đặt lịch tư vấn
           </a>
-          <button class="mobile-menu-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+          <button class="mobile-menu-btn" aria-label="Mở menu di động"><i class="fas fa-bars"></i></button>
         </div>
       </nav>
     </div>
@@ -701,5 +802,6 @@
     </div>
   </footer>
 
+  <script src="js/main.js"></script>
 </body>
 </html>
