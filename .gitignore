@@ -1,0 +1,11 @@
+# Generated raw sources - DO NOT deploy
+tools/_image_sources/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS Files
+.DS_Store
+Thumbs.db

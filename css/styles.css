@@ -22,7 +22,7 @@
   --brand-green-border: #bbf7d0;
   --text-dark: #0f172a;
   --text-body: #334155;
-  --text-muted: #64748b;
+  --text-muted: #4b5563;
   --border-light: #e2e8f0;
   --border-card: #cbd5e1;
   --card-bg: #ffffff;
@@ -320,6 +320,36 @@ button, input, select, textarea {
   transform: rotate(180deg);
 }
 
+/* Button toggle support for Mega Menu */
+button.mega-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+button.mega-toggle-btn:hover,
+button.mega-toggle-btn:focus-visible,
+.has-mega.is-open > button.mega-toggle-btn,
+.nav-item.has-mega:hover > button.mega-toggle-btn {
+  color: var(--primary-blue);
+  background-color: var(--blue-tint);
+}
+
+.has-mega.is-open > button.mega-toggle-btn i.fa-chevron-down,
+.nav-item.has-mega:hover > button.mega-toggle-btn i.fa-chevron-down {
+  transform: rotate(180deg);
+}
+
 /* Mega Menu Dropdown */
 .mega-dropdown {
   position: absolute;
@@ -337,10 +367,33 @@ button, input, select, textarea {
   z-index: 1001;
 }
 
-.nav-item:hover .mega-dropdown {
+/* Cầu nối vô hình giúp rê chuột từ nav-link xuống panel không bị mất */
+.mega-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 18px;
+}
+
+.nav-item.has-mega:hover .mega-dropdown,
+.nav-item.has-mega.is-open .mega-dropdown,
+.nav-item.has-mega:focus-within .mega-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
+}
+
+/* Current page indicator */
+.nav-link[aria-current="page"] {
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+.mega-sub-item a[aria-current="page"] {
+  background-color: var(--blue-tint);
+  border-left: 3px solid var(--primary-blue);
+  font-weight: 700;
 }
 
 .mega-grid-4 {
@@ -436,7 +489,7 @@ button, input, select, textarea {
 .hero-v2 {
   position: relative;
   background: radial-gradient(circle at 15% 15%, #eff6ff 0%, #ffffff 50%, #f0fdf4 100%);
-  padding: 70px 0 90px 0;
+  padding: 36px 0 56px 0;
   overflow: hidden;
 }
 
@@ -465,8 +518,9 @@ button, input, select, textarea {
 .hero-grid-split {
   display: grid;
   grid-template-columns: 1.15fr 0.95fr;
-  gap: 50px;
-  align-items: center;
+  gap: 44px;
+  align-items: flex-start;
+  padding-top: 16px;
   position: relative;
   z-index: 2;
 }
@@ -538,6 +592,9 @@ button, input, select, textarea {
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-xl);
   overflow: hidden;
+  max-height: 560px;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.3s ease;
 }
 
@@ -610,9 +667,11 @@ button, input, select, textarea {
 }
 
 .sim-body-wrap {
-  padding: 20px;
+  padding: 18px 20px;
   background-color: #fafbfc;
-  min-height: 290px;
+  min-height: 280px;
+  max-height: 440px;
+  overflow-y: auto;
 }
 
 .sim-scenario-pane {
@@ -913,7 +972,7 @@ button, input, select, textarea {
    ========================================================================== */
 .solutions-detail-section {
   padding: 95px 0;
-  background-color: var(--blue-tint);
+  background-color: #ffffff;
 }
 
 .sol-tabs-container {
@@ -1114,7 +1173,7 @@ button, input, select, textarea {
    ========================================================================== */
 .roadmap-section {
   padding: 90px 0;
-  background-color: #ffffff;
+  background-color: #F5F8FD;
 }
 
 .org-selector-pills {
@@ -1419,6 +1478,49 @@ button, input, select, textarea {
     padding: 20px;
     box-shadow: var(--shadow-xl);
     border-top: 1px solid var(--border-light);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+  .nav-item.has-mega {
+    width: 100%;
+  }
+  button.mega-toggle-btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 14px;
+    font-size: 1rem;
+  }
+  .mega-dropdown {
+    position: static;
+    transform: none !important;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 8px;
+    display: none;
+    visibility: visible;
+    opacity: 1;
+    z-index: auto;
+  }
+  .has-mega.is-open .mega-dropdown {
+    display: block;
+  }
+  .mega-grid-4 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .mega-layer-col {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 12px;
+  }
+  .mega-layer-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
   .mobile-menu-btn {
     display: block;
@@ -1851,7 +1953,7 @@ p {
 /* ===================== CASE STUDY SECTION ===================== */
 .case-studies-section {
   padding: 80px 0;
-  background: #ffffff;
+  background: #F5F8FD;
 }
 
 .case-grid {
@@ -1947,7 +2049,7 @@ p {
 /* ===================== IMPLEMENTATION PROCESS ===================== */
 .process-section {
   padding: 80px 0;
-  background: #f8fafc;
+  background: #ffffff;
   border-top: 1px solid var(--border-light);
 }
 
@@ -2085,7 +2187,7 @@ p {
 /* ===================== FAQ SECTION ===================== */
 .faq-section {
   padding: 80px 0;
-  background: #f8fafc;
+  background: #ffffff;
   border-top: 1px solid var(--border-light);
 }
 
@@ -2396,4 +2498,153 @@ p {
   .trust-metrics-strip {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* ==========================================================================
+   P1 ENHANCEMENTS: MEDIA COMPONENTS & LAYOUT POLISH
+   ========================================================================== */
+
+/* 1. Media Frames */
+.media {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #EAF1FF;
+}
+
+.media--4x3  { aspect-ratio: 4 / 3; }
+.media--16x9 { aspect-ratio: 16 / 9; }
+.media--3x2  { aspect-ratio: 3 / 2; }
+
+.media__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.challenge-card:hover .media__img,
+.case-card:hover .media__img,
+.related-card:hover .media__img {
+  transform: scale(1.03);
+}
+
+.challenge-card > .media:first-child,
+.case-card > .media:first-child,
+.related-card > .media:first-child {
+  border-radius: 16px 16px 0 0;
+  margin: -32px -32px 24px -32px;
+  width: calc(100% + 64px);
+}
+
+.media__tag {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(11, 42, 107, 0.78);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+/* 2. Hero 2-Column Product Layout */
+.product-hero__visual {
+  position: relative;
+}
+
+.product-hero__visual .product-hero-card {
+  position: absolute;
+  left: -28px;
+  bottom: -28px;
+  max-width: 360px;
+  z-index: 3;
+  box-shadow: 0 20px 40px rgba(0, 37, 97, 0.3);
+}
+
+@media (max-width: 1023px) {
+  .product-hero__visual .product-hero-card {
+    position: static;
+    margin-top: 20px;
+    max-width: none;
+  }
+}
+
+/* 3. Hero Index adjustments (P1-4) */
+.hero-v2 .hero-grid-split {
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+.hero-v2 .sim-container {
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+/* 4. Roadmap 2-Column Split (P1-1 & P1-2) */
+.roadmap-panel-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .roadmap-panel-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 5. Related Grid Polish (P1-5) */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.related-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  padding: 32px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #bfdbfe;
+}
+
+
+/* Accessibility Skip Link (P2) */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 16px;
+  background: var(--primary-blue);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  z-index: 99999;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
 }

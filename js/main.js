@@ -6,6 +6,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   initStickyHeader();
   initMobileMenu();
+  initMegaDropdown();
+  initCurrentPageIndicator();
+  initPreselectedSolution();
   initHeroSimulator();
   initHeroRolePicker();
   initChallengeSolutionToggle();
@@ -61,6 +64,109 @@ function initMobileMenu() {
       btn.innerHTML = '<i class="fas fa-bars"></i>';
     }
   });
+}
+
+// 2b. Mega Dropdown Interactions (P0-2)
+function initMegaDropdown() {
+  const megaItem = document.querySelector('.nav-item.has-mega');
+  const toggleBtn = document.getElementById('megaMenuBtn');
+  const dropdown = megaItem ? megaItem.querySelector('.mega-dropdown') : null;
+  if (!megaItem || !toggleBtn || !dropdown) return;
+
+  let closeTimer = null;
+
+  // Hover with 150ms close buffer
+  megaItem.addEventListener('mouseenter', () => {
+    if (closeTimer) clearTimeout(closeTimer);
+    megaItem.classList.add('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+  });
+
+  megaItem.addEventListener('mouseleave', () => {
+    closeTimer = setTimeout(() => {
+      megaItem.classList.remove('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }, 150);
+  });
+
+  // Touch / Click toggle
+  toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isOpen = megaItem.classList.toggle('is-open');
+    toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Keyboard navigation: Escape to close, click outside
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && megaItem.classList.contains('is-open')) {
+      megaItem.classList.remove('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.focus();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!megaItem.contains(e.target)) {
+      megaItem.classList.remove('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+// 2c. Current Page Indicator (P0-1)
+function initCurrentPageIndicator() {
+  let path = window.location.pathname.split('/').pop() || 'index.html';
+  if (!path || path === '/') path = 'index.html';
+
+  const megaLinks = document.querySelectorAll('.mega-sub-item a');
+  megaLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.includes(path) && path !== 'index.html') {
+      link.setAttribute('aria-current', 'page');
+      const parentBtn = document.getElementById('megaMenuBtn');
+      if (parentBtn) {
+        parentBtn.setAttribute('aria-current', 'page');
+      }
+    }
+  });
+}
+
+// 2d. Pre-select Solution in Contact Form via query param ?solution= (P0-5)
+function initPreselectedSolution() {
+  const params = new URLSearchParams(window.location.search);
+  const solution = params.get('solution');
+  if (!solution) return;
+
+  const leadSolution = document.getElementById('leadSolution');
+  if (leadSolution) {
+    const map = {
+      'digitization': 'Số hóa',
+      'smart-ivier': 'Smart iVier',
+      'ivihrm': 'iViHRM',
+      'smart-study-2': 'Smart Study',
+      'interactive-displays': 'Màn hình tương tác',
+      'nexta': 'Nexta',
+      'ivivi': 'iViVi'
+    };
+    const needle = map[solution];
+    if (needle) {
+      for (let i = 0; i < leadSolution.options.length; i++) {
+        if (leadSolution.options[i].text.toLowerCase().includes(needle.toLowerCase())) {
+          leadSolution.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  }
+
+  if (window.location.hash === '#contact') {
+    const contactEl = document.getElementById('contact');
+    if (contactEl) {
+      setTimeout(() => {
+        contactEl.scrollIntoView({ behavior: 'smooth' });
+      }, 250);
+    }
+  }
 }
 
 // 3. Hero Live Simulator (Smart iVier, iViHRM, iViVi)
@@ -119,7 +225,7 @@ function initHeroSimulator() {
 
     // Render citations
     if (citationsContainer) {
-      citationsContainer.innerHTML = '<span style="font-size:0.75rem;font-weight:700;color:#64748b;margin-right:6px;"><i class="fas fa-check-shield text-green"></i> Căn cứ:</span>';
+      citationsContainer.innerHTML = '<span style="font-size:0.75rem;font-weight:700;color:#64748b;margin-right:6px;"><i class="fas fa-shield-halved text-green"></i> Căn cứ:</span>';
       if (sc.citations && sc.citations.length > 0) {
         sc.citations.forEach(c => {
           const chip = document.createElement('span');
@@ -330,6 +436,21 @@ function initRoadmapTabs() {
         rec2.textContent = data.rec2;
         benefit.textContent = data.benefit;
       }
+
+      // Switch role image with 200ms fade (P1-1)
+      const roleMedias = document.querySelectorAll('.roadmap-role-media');
+      roleMedias.forEach(rm => {
+        if (rm.dataset.roleImg === type) {
+          rm.style.display = 'block';
+          rm.style.opacity = '0';
+          setTimeout(() => {
+            rm.style.transition = 'opacity 200ms ease';
+            rm.style.opacity = '1';
+          }, 10);
+        } else {
+          rm.style.display = 'none';
+        }
+      });
     });
 
     // Arrow keys support
