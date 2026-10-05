@@ -58,7 +58,29 @@ ivitech-modern/
 
 ---
 
-## 🚀 Cách Xem Và Trải Nghiệm Ngay
+## 🚀 Cách Chạy Và Trải Nghiệm Website
 
-- Nhấp đúp trực tiếp vào file [index.html](file:///C:/Users/bim/.gemini/antigravity/scratch/ivitech-modern/index.html) để mở trên trình duyệt (Google Chrome, Microsoft Edge, Cốc Cốc, v.v.).
-- Bạn có thể xem ngay lập tức mà không cần cài đặt thêm bất kỳ phần mềm hay câu lệnh nào.
+> ⚠️ **LƯU Ý QUAN TRỌNG VỀ VIDEO YOUTUBE:**
+> Để các video YouTube nhúng trực tiếp phát ổn định và không gặp lỗi bảo mật của YouTube (*"Error 153 – Video player configuration error"* vốn do trình duyệt chặn gửi Referer header khi mở qua giao thức `file://`), **hãy luôn xem trang web qua Local HTTP Server (`http://localhost:<port>`) thay vì mở file trực tiếp.**
+
+### Cách 1: Sử dụng npm / npx (Khuyến nghị nếu có Node.js)
+```bash
+npm run dev
+# hoặc
+npx serve .
+```
+Truy cập: [http://localhost:3000](http://localhost:3000) (hoặc port được hiển thị).
+
+### Cách 2: Sử dụng Python (Luôn có sẵn trên Windows/Mac/Linux)
+```bash
+# Khởi chạy server tại cổng 8080:
+python -m http.server 8080
+```
+Truy cập: [http://localhost:8080](http://localhost:8080) hoặc [http://localhost:8080/product-smart-ivier.html](http://localhost:8080/product-smart-ivier.html).
+
+---
+
+### 🛡️ Cơ chế dự phòng khi mở qua `file://` (Fallback Mode)
+Nếu người dùng vẫn nhấp đúp mở file HTML trực tiếp qua giao thức `file:///`:
+- Hệ thống đã tích hợp sẵn script `assets/js/yt-fallback.js`.
+- Script sẽ tự động nhận diện `location.protocol === 'file:'` và chuyển đổi các iframe YouTube thành card thumbnail sắc nét (16:9) kèm nút Play để mở video trên YouTube tab mới một cách an toàn và tiện lợi, tránh hoàn toàn màn hình đen thông báo "Error 153".

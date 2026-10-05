@@ -7,6 +7,7 @@
   <meta name="description" content="iViTech kết nối dữ liệu, tri thức, phần mềm, AI, thiết bị và giáo dục để giúp cơ quan nhà nước, doanh nghiệp và nhà trường kiến tạo năng lực số thực tế.">
   <meta name="keywords" content="iViTech, Smart iVier, iViHRM, iViVi, số hóa hồ sơ, chuyển đổi số, AI công vụ, lớp học thông minh, robotics">
   <meta name="theme-color" content="#002561">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://ivitech.vn/">
 
   <!-- Open Graph / Facebook -->
@@ -24,7 +25,10 @@
   <meta name="twitter:image" content="brand/hero-glass.webp">
 
   <!-- Favicon -->
-  <link rel="icon" href="brand/ivitech-primary.png" type="image/png">
+  <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="brand/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="brand/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 
   <!-- Google Fonts: Plus Jakarta Sans & Be Vietnam Pro -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -362,11 +366,17 @@
                 Nội dung mô phỏng mang tính chất minh họa, không thay thế ý kiến pháp lý hoặc quyết định hành chính chính thức.
               </div>
 
-              <!-- Quick CTA link -->
-              <a href="#contact" class="sim-cta-try" data-cta="sim-try-custom">
-                <span>Thử với tình huống cụ thể của đơn vị bạn</span>
-                <i class="fas fa-arrow-right"></i>
-              </a>
+              <!-- Quick CTA link & Video Link -->
+              <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+                <button type="button" class="btn-video-hero-sim" id="simVideoLink" data-video-open="smart-ivier-short" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd; border-radius: 8px; padding: 8px 14px; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease;">
+                  <i class="fas fa-play-circle" style="color: #0284c7;"></i>
+                  <span id="simVideoLabel">Xem video Smart iVier thực tế (4:05)</span>
+                </button>
+                <a href="#contact" class="sim-cta-try" data-cta="sim-try-custom">
+                  <span>Thử với tình huống cụ thể của đơn vị bạn</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -537,23 +547,71 @@
                 Giúp rút ngắn đáng kể thời gian xử lý thủ tục, văn bản soạn thảo chuẩn theo thể thức Nghị định 30/2020/NĐ-CP, bảo vệ trách nhiệm cán bộ.
               </p>
             </div>
-            <a href="#contact" class="btn btn-primary" data-cta="roadmap-btn-consult">
-              <i class="fas fa-file-alt"></i> Nhận hồ sơ giải pháp chi tiết
-            </a>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+              <a href="#contact" class="btn btn-primary" data-cta="roadmap-btn-consult">
+                <i class="fas fa-file-alt"></i> Nhận hồ sơ giải pháp chi tiết
+              </a>
+              <a href="#ecosystem" class="btn btn-secondary" data-cta="roadmap-btn-eco">
+                <i class="fas fa-layer-group"></i> Xem chi tiết 4 lớp hệ sinh thái
+              </a>
+            </div>
           </div>
 
           
           <div>
-            <div class="roadmap-role-media-wrap" style="position: relative; margin-bottom: 20px;">
-              <figure class="media media--4x3 roadmap-role-media" data-role-img="gov">
-                <img data-img="home-role-gov" class="media__img" alt="Cán bộ bộ phận một cửa hỗ trợ người dân làm thủ tục" src="assets/img/generated/home-role-gov-1024.webp" width="1024" height="768" loading="lazy" decoding="async" srcset="assets/img/generated/home-role-gov-640.webp 640w, assets/img/generated/home-role-gov-1024.webp 1024w, assets/img/generated/home-role-gov-1600.webp 1600w" sizes="(min-width: 1024px) 40vw, 100vw">
-              </figure>
-              <figure class="media media--4x3 roadmap-role-media" data-role-img="business" style="display: none;">
-                <img data-img="home-role-business" class="media__img" alt="Bộ phận nhân sự doanh nghiệp theo dõi dữ liệu trên hệ thống" src="assets/img/generated/home-role-business-1024.webp" width="1024" height="768" loading="lazy" decoding="async" srcset="assets/img/generated/home-role-business-640.webp 640w, assets/img/generated/home-role-business-1024.webp 1024w, assets/img/generated/home-role-business-1600.webp 1600w" sizes="(min-width: 1024px) 40vw, 100vw">
-              </figure>
-              <figure class="media media--4x3 roadmap-role-media" data-role-img="school" style="display: none;">
-                <img data-img="home-role-school" class="media__img" alt="Lớp học số với màn hình tương tác tại trường phổ thông" src="assets/img/generated/home-role-school-1024.webp" width="1024" height="768" loading="lazy" decoding="async" srcset="assets/img/generated/home-role-school-640.webp 640w, assets/img/generated/home-role-school-1024.webp 1024w, assets/img/generated/home-role-school-1600.webp 1600w" sizes="(min-width: 1024px) 40vw, 100vw">
-              </figure>
+            <div class="roadmap-role-media-wrap" id="roadmapRoleMediaWrap" style="position: relative; margin-bottom: 20px;">
+              <!-- Role 1: Cơ quan nhà nước -> Nhúng trực tiếp Video Smart iVier -->
+              <div class="roadmap-role-embed" data-role-embed="gov">
+                <div class="video-inline-box" id="roadmapVideoBoxGov">
+                  <div class="video-inline-player">
+                    <iframe src="https://www.youtube-nocookie.com/embed/aTcj9CMrDiU?rel=0" title="Smart iVier – Hệ thống điều hành số cấp phường/xã" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-caption-bar">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span class="video-badge-live"><i class="fas fa-play"></i> Video thực tế (4:05)</span>
+                      <strong style="font-size: 0.88rem; color: var(--primary-navy);">Smart iVier AI công vụ cấp phường/xã</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Role 2: Doanh nghiệp -> Graphic & giải pháp iViHRM OCR -->
+              <div class="roadmap-role-embed" data-role-embed="business" style="display: none;">
+                <div class="video-inline-box">
+                  <figure class="media media--16x9">
+                    <img data-img="home-role-business" class="media__img" alt="Bộ phận nhân sự doanh nghiệp theo dõi dữ liệu trên hệ thống" src="assets/img/generated/home-role-business-1024.webp" width="1024" height="576" loading="lazy" decoding="async" srcset="assets/img/generated/home-role-business-640.webp 640w, assets/img/generated/home-role-business-1024.webp 1024w, assets/img/generated/home-role-business-1600.webp 1600w" sizes="(min-width: 1024px) 40vw, 100vw">
+                  </figure>
+                  <div class="video-caption-bar">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span class="video-badge-live" style="background: #e0f2fe; color: #0284c7;"><i class="fas fa-building"></i> Nền tảng HRM</span>
+                      <strong style="font-size: 0.88rem; color: var(--primary-navy);">iViHRM – Chuẩn hóa nhân sự & AI OCR bóc tách hồ sơ</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Role 3: Trường học -> Nhúng trực tiếp Video Smart Study / iViVi với bộ chọn switcher -->
+              <div class="roadmap-role-embed" data-role-embed="school" style="display: none;">
+                <div class="video-inline-box">
+                  <div class="video-inline-player">
+                    <iframe id="roadmapSchoolIframe" src="https://www.youtube-nocookie.com/embed/emHzUM6OWJs?rel=0" title="Lớp học số với Smart Study 2 & học liệu Nexta" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-caption-bar" style="flex-direction: column; align-items: stretch; gap: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <span class="video-badge-live" style="background: #fef3c7; color: #b45309;"><i class="fas fa-graduation-cap"></i> Giáo dục thông minh</span>
+                      <span id="roadmapSchoolDur" style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Thời lượng: 3:12</span>
+                    </div>
+                    <div class="school-video-nav" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                      <button type="button" class="btn-video-chip active" data-roadmap-school-vid="emHzUM6OWJs" data-vid-dur="3:12" data-vid-title="Lớp học số với Smart Study 2 & học liệu Nexta">
+                        <i class="fas fa-tablet-alt"></i> Lớp học số Smart Study (3:12)
+                      </button>
+                      <button type="button" class="btn-video-chip" data-roadmap-school-vid="1-Vt5HCICZY" data-vid-dur="2:35" data-vid-title="Giáo dục năng lực số & AI Robotics iViVi">
+                        <i class="fas fa-robot"></i> Đào tạo AI & Robotics (2:35)
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: 12px; padding: 20px;">
             <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 16px;">
@@ -712,6 +770,34 @@
               </div>
             </div>
 
+            <!-- Video Showcase Layer 2 (Nhúng trực tiếp 2 video) -->
+            <div style="margin-top: 24px; margin-bottom: 24px;">
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 14px;">
+                <i class="fas fa-play-circle text-blue"></i> Video trải nghiệm thực tế Smart iVier (Xem trực tiếp):
+              </h4>
+              <div class="video-grid-2">
+                <div class="video-embed-box">
+                  <div class="video-inline-player">
+                    <iframe src="https://www.youtube-nocookie.com/embed/uPnuBuBuZ8c?rel=0" title="Smart iVier – Bộ giải pháp AI công vụ cho phường (Bản đầy đủ)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-embed-info">
+                    <span class="video-badge-live"><i class="fas fa-play"></i> Bản đầy đủ (10:43)</span>
+                    <h5 class="video-embed-title">Smart iVier – Trợ lý AI công vụ chuyên sâu</h5>
+                  </div>
+                </div>
+
+                <div class="video-embed-box">
+                  <div class="video-inline-player">
+                    <iframe src="https://www.youtube-nocookie.com/embed/aTcj9CMrDiU?rel=0" title="Smart iVier – Hệ thống điều hành số cấp phường/xã (Bản rút gọn)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                  </div>
+                  <div class="video-embed-info">
+                    <span class="video-badge-live"><i class="fas fa-play"></i> Bản rút gọn (4:05)</span>
+                    <h5 class="video-embed-title">Smart iVier – Tổng quan vận hành cấp phường/xã</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div style="display: flex; gap: 14px;">
               <a href="#contact" class="btn btn-primary" data-cta="eco-l2-contact">Đăng ký trải nghiệm Demo</a>
             </div>
@@ -728,7 +814,7 @@
               Không đơn thuần là trang bị máy móc. iViTech kết hợp đồng bộ 5 yếu tố: Thiết bị • Nội dung • Phần mềm • Phương pháp • Con người để nâng cao chất lượng dạy và học.
             </p>
 
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 28px;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 24px;">
               <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: 12px; padding: 20px;">
                 <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 6px;">Smart Study 2</h4>
                 <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 12px;">Máy tính bảng học tập chuyên dụng cho học sinh, tích hợp giải pháp quản trị MDM an toàn.</p>
@@ -745,6 +831,22 @@
                 <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 6px;">Ứng dụng Nexta</h4>
                 <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 12px;">Học liệu số tương tác chuẩn hóa kết nối học tập giữa nhà trường và gia đình.</p>
                 <a href="product-nexta.html" class="text-blue" style="font-size:0.84rem; font-weight:700;">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Video Showcase Layer 3 (Nhúng trực tiếp) -->
+            <div style="margin-bottom: 24px;">
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 14px;">
+                <i class="fas fa-play-circle text-blue"></i> Trải nghiệm giải pháp lớp học số (Xem trực tiếp):
+              </h4>
+              <div class="video-embed-box video-embed-box-single">
+                <div class="video-inline-player">
+                  <iframe src="https://www.youtube-nocookie.com/embed/emHzUM6OWJs?rel=0" title="Lớp học số với Smart Study 2 & học liệu Nexta" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="video-embed-info">
+                  <span class="video-badge-live"><i class="fas fa-play"></i> Thực tế lớp học (3:12)</span>
+                  <h5 class="video-embed-title">Lớp học số kết nối máy tính bảng Smart Study 2 và nền tảng học liệu số Nexta</h5>
+                </div>
               </div>
             </div>
 
@@ -770,6 +872,22 @@
               <div class="method-split-bar">
                 <div class="bar-foundation"><span>20% Lý thuyết</span></div>
                 <div class="bar-practice"><span>80% Thực hành robotics & ứng dụng AI</span></div>
+              </div>
+            </div>
+
+            <!-- Video Showcase Layer 4 (Nhúng trực tiếp) -->
+            <div style="margin-bottom: 24px;">
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--primary-navy); margin-bottom: 14px;">
+                <i class="fas fa-play-circle text-blue"></i> Xem giờ học iViVi thực tế của học sinh (Xem trực tiếp):
+              </h4>
+              <div class="video-embed-box video-embed-box-single">
+                <div class="video-inline-player">
+                  <iframe src="https://www.youtube-nocookie.com/embed/1-Vt5HCICZY?rel=0" title="Giáo dục năng lực số & AI Robotics iViVi" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="video-embed-info">
+                  <span class="video-badge-live"><i class="fas fa-play"></i> Thực hành 20/80 (2:35)</span>
+                  <h5 class="video-embed-title">Học sinh tự tay lắp ráp robotics, lập trình tư duy và ứng dụng AI thực tế</h5>
+                </div>
               </div>
             </div>
 
@@ -814,6 +932,14 @@
             <div class="case-result-badge">
               <strong><i class="fas fa-chart-line"></i> Kết quả bước đầu:</strong>
               <span>Thời gian tra cứu trích lục hồ sơ giảm rõ rệt; hỗ trợ chuẩn hóa thể thức văn bản theo Nghị định 30/2020/NĐ-CP. <!-- TODO(iViTech): Ghi rõ phạm vi đo lường và kết quả thí điểm cụ thể --></span>
+            </div>
+            <div style="margin-top: 14px;">
+              <div class="video-inline-player" style="border-radius: 10px;">
+                <iframe src="https://www.youtube-nocookie.com/embed/aTcj9CMrDiU?rel=0" title="Smart iVier – Video ứng dụng thực tế tại cơ sở" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 6px; display: flex; align-items: center; gap: 6px;">
+                <i class="fas fa-play-circle text-blue"></i> <span>Video thực tế: Smart iVier vận hành tại cơ sở (4:05)</span>
+              </div>
             </div>
           </div>
 
@@ -868,6 +994,14 @@
             <div class="case-result-badge">
               <strong><i class="fas fa-chart-line"></i> Kết quả bước đầu:</strong>
               <span>Học sinh tự tay lắp ráp và lập trình hoàn thiện các mô hình robot thông minh trong năm học; phương pháp học tập đón nhận hào hứng. <!-- TODO(iViTech): Bổ sung số liệu trường học thực tế --></span>
+            </div>
+            <div style="margin-top: 14px;">
+              <div class="video-inline-player" style="border-radius: 10px;">
+                <iframe src="https://www.youtube-nocookie.com/embed/1-Vt5HCICZY?rel=0" title="iViVi – Video giờ học Robotics & AI theo phương pháp 20/80" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 6px; display: flex; align-items: center; gap: 6px;">
+                <i class="fas fa-play-circle text-blue"></i> <span>Video thực tế: Giờ học Robotics & AI theo phương pháp 20/80 (2:35)</span>
+              </div>
             </div>
           </div>
 
@@ -1275,13 +1409,33 @@
       <div>
         <h4 class="footer-col-title">Sản phẩm cốt lõi</h4>
         <ul class="footer-links-list">
-          <li><a href="product-smart-ivier.html">Smart iVier (AI Công vụ)</a></li>
+          <li>
+            <a href="product-smart-ivier.html">Smart iVier (AI Công vụ)</a>
+            <button type="button" class="footer-video-trigger" data-video-open="smart-ivier-short" title="Xem video giới thiệu Smart iVier" aria-label="Xem video giới thiệu Smart iVier">
+              <i class="fas fa-play" aria-hidden="true"></i>
+            </button>
+          </li>
           <li><a href="product-digitization.html">Chỉnh lý và số hóa hồ sơ</a></li>
           <li><a href="product-ivihrm.html">iViHRM Quản trị nhân sự</a></li>
-          <li><a href="product-smart-study-2.html">Smart Study 2 (Máy tính bảng)</a></li>
+          <li>
+            <a href="product-smart-study-2.html">Smart Study 2 (Máy tính bảng)</a>
+            <button type="button" class="footer-video-trigger" data-video-open="smart-study-nexta" title="Xem video lớp học số Smart Study 2" aria-label="Xem video lớp học số Smart Study 2">
+              <i class="fas fa-play" aria-hidden="true"></i>
+            </button>
+          </li>
           <li><a href="product-interactive-displays.html">Màn hình tương tác thông minh</a></li>
-          <li><a href="product-nexta.html">Ứng dụng học liệu Nexta</a></li>
-          <li><a href="product-ivivi.html">iViVi Robotics & AI (20/80)</a></li>
+          <li>
+            <a href="product-nexta.html">Ứng dụng học liệu Nexta</a>
+            <button type="button" class="footer-video-trigger" data-video-open="smart-study-nexta" title="Xem video học liệu Nexta" aria-label="Xem video học liệu Nexta">
+              <i class="fas fa-play" aria-hidden="true"></i>
+            </button>
+          </li>
+          <li>
+            <a href="product-ivivi.html">iViVi Robotics & AI (20/80)</a>
+            <button type="button" class="footer-video-trigger" data-video-open="ivivi-ai" title="Xem video giáo dục Robotics iViVi" aria-label="Xem video giáo dục Robotics iViVi">
+              <i class="fas fa-play" aria-hidden="true"></i>
+            </button>
+          </li>
         </ul>
       </div>
 
@@ -1328,20 +1482,30 @@
 </button>
   <!-- /@include footer -->
 
-  <!-- ===================== 12. FLOATING & STICKY ELEMENTS ===================== -->
-  <!-- Mobile Sticky Bottom Bar (P2-4) -->
-  <div class="mobile-sticky-bar" aria-label="Liên hệ nhanh di động">
-    <a href="tel:0989318789" class="mobile-sticky-btn mobile-sticky-call" data-cta="sticky-call">
-      <i class="fas fa-phone-alt"></i> Gọi ngay: 0989 318 789
-    </a>
-    <a href="https://zalo.me/0989318789" target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn mobile-sticky-zalo" data-cta="sticky-zalo">
-      <i class="fas fa-comment-dots"></i> Nhắn Zalo
-    </a>
+  <!-- Video Lightbox Modal (P2-Video) -->
+  <div class="video-modal-backdrop" id="ivitechVideoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" hidden>
+    <div class="video-modal-dialog">
+      <div class="video-modal-header">
+        <h3 class="video-modal-title" id="videoModalTitle">Video giới thiệu giải pháp</h3>
+        <button type="button" class="video-modal-close" id="videoModalCloseBtn" aria-label="Đóng video (Phím Escape)">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="video-modal-body">
+        <div class="video-modal-iframe-wrap" id="videoModalIframeWrap">
+          <!-- Dynamic YouTube iframe is mounted here on open, removed on close -->
+        </div>
+      </div>
+      <div class="video-modal-footer">
+        <span class="video-modal-duration-badge" id="videoModalDuration">
+          <i class="far fa-clock" aria-hidden="true"></i> <span>--:--</span>
+        </span>
+        <a href="#contact" class="btn btn-primary btn-sm" id="videoModalCtaBtn" data-cta="video-modal-consult">
+          <i class="fas fa-calendar-check" aria-hidden="true"></i> Đặt lịch tư vấn giải pháp này
+        </a>
+      </div>
+    </div>
   </div>
-
-  <button class="back-top-btn" id="ivitechBackToTop" aria-label="Lên đầu trang">
-    <i class="fas fa-arrow-up"></i>
-  </button>
 
   <!-- Toast Notification -->
   <div class="toast-alert" id="ivitechToast" role="alert" aria-live="assertive">
@@ -1350,6 +1514,8 @@
   </div>
 
   <!-- Custom Scripts -->
+  <script src="assets/js/yt-fallback.js"></script>
+  <script src="js/videos-data.js"></script>
   <script src="js/simulator-data.js"></script>
   <script src="js/main.js"></script>
 </body>

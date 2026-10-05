@@ -1,0 +1,20 @@
+{
+  "name": "ivitech-modern",
+  "version": "1.0.0",
+  "description": "iViTech Modern Landing Page & Ecosystem",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "serve": "npx serve .",
+    "start": "python -m http.server 8080",
+    "start:node": "npx serve -l 8080 .",
+    "server": "python -m http.server 8080"
+  },
+  "keywords": [
+    "ivitech",
+    "landing-page",
+    "ai-ecosystem"
+  ],
+  "author": "iViTech",
+  "license": "ISC"
+}

@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initScrollSpy();
   initMobileStickyBar();
+  initVideoShowcase();
+  initVideoLightboxModal();
   initTracking();
 });
 
@@ -213,6 +215,24 @@ function initHeroSimulator() {
     if (tabData.scenarios.length > 0) {
       playScenario(tabData.scenarios[0], false);
     }
+
+    // Sync Video Preview Trigger in hero simulator
+    const simVideoLink = document.getElementById('simVideoLink');
+    const simVideoLabel = document.getElementById('simVideoLabel');
+    if (simVideoLink) {
+      if (tabKey === 'smart-ivier') {
+        simVideoLink.style.display = 'inline-flex';
+        simVideoLink.setAttribute('data-video-open', 'smart-ivier-short');
+        if (simVideoLabel) simVideoLabel.textContent = 'Xem video Smart iVier thực tế (4:05)';
+      } else if (tabKey === 'ivivi') {
+        simVideoLink.style.display = 'inline-flex';
+        simVideoLink.setAttribute('data-video-open', 'ivivi-ai');
+        if (simVideoLabel) simVideoLabel.textContent = 'Xem video lớp học iViVi Robotics (2:35)';
+      } else {
+        // iViHRM has no video currently
+        simVideoLink.style.display = 'none';
+      }
+    }
   }
 
   function playScenario(sc, animate = true) {
@@ -306,6 +326,30 @@ function initHeroSimulator() {
       }
     });
   });
+
+  // simVideoLink click: scroll to embedded video in roadmap
+  const simVideoBtn = document.getElementById('simVideoLink');
+  if (simVideoBtn) {
+    simVideoBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentTab = document.querySelector('.sim-tab.active')?.dataset.tab;
+      if (currentTab === 'ivivi') {
+        const schoolBtn = document.querySelector('.org-pill-btn[data-org="school"]');
+        if (schoolBtn) schoolBtn.click();
+        const iviviChip = document.querySelector('[data-roadmap-school-vid="1-Vt5HCICZY"]');
+        if (iviviChip) iviviChip.click();
+      } else {
+        const govBtn = document.querySelector('.org-pill-btn[data-org="gov"]');
+        if (govBtn) govBtn.click();
+      }
+      const targetWrap = document.getElementById('roadmapRoleMediaWrap');
+      if (targetWrap) {
+        targetWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetWrap.classList.add('video-highlight-pulse');
+        setTimeout(() => targetWrap.classList.remove('video-highlight-pulse'), 3000);
+      }
+    });
+  }
 
   // Initial load
   renderScenariosForTab('smart-ivier');
@@ -437,18 +481,18 @@ function initRoadmapTabs() {
         benefit.textContent = data.benefit;
       }
 
-      // Switch role image with 200ms fade (P1-1)
-      const roleMedias = document.querySelectorAll('.roadmap-role-media');
-      roleMedias.forEach(rm => {
-        if (rm.dataset.roleImg === type) {
-          rm.style.display = 'block';
-          rm.style.opacity = '0';
+      // Switch role embed container with 200ms fade
+      const roleEmbeds = document.querySelectorAll('.roadmap-role-embed');
+      roleEmbeds.forEach(re => {
+        if (re.dataset.roleEmbed === type) {
+          re.style.display = 'block';
+          re.style.opacity = '0';
           setTimeout(() => {
-            rm.style.transition = 'opacity 200ms ease';
-            rm.style.opacity = '1';
+            re.style.transition = 'opacity 200ms ease';
+            re.style.opacity = '1';
           }, 10);
         } else {
-          rm.style.display = 'none';
+          re.style.display = 'none';
         }
       });
     });
@@ -463,6 +507,27 @@ function initRoadmapTabs() {
       if (nextBtn) {
         nextBtn.focus();
         nextBtn.click();
+      }
+    });
+  });
+
+  // School role video switcher chips (Lớp học số <-> Robotics)
+  const schoolChips = document.querySelectorAll('[data-roadmap-school-vid]');
+  const schoolIframe = document.getElementById('roadmapSchoolIframe');
+  const schoolDur = document.getElementById('roadmapSchoolDur');
+  schoolChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      schoolChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const vidId = chip.dataset.roadmapSchoolVid;
+      const dur = chip.dataset.vidDur;
+      const title = chip.dataset.vidTitle;
+      if (schoolIframe && vidId) {
+        schoolIframe.src = `https://www.youtube-nocookie.com/embed/${vidId}?rel=0`;
+        if (title) schoolIframe.title = title;
+      }
+      if (schoolDur && dur) {
+        schoolDur.textContent = `Thời lượng: ${dur}`;
       }
     });
   });
@@ -742,3 +807,164 @@ function trackEvent(category, action, label) {
     });
   }
 }
+
+// 13. Video Showcase Cards (Dynamic Thumbnails & Metadata)
+function initVideoShowcase() {
+  const videoCards = document.querySelectorAll('.video-card[data-video]');
+  if (!videoCards.length) return;
+
+  const videos = window.IVITECH_VIDEOS || {};
+
+  videoCards.forEach(card => {
+    const videoKey = card.getAttribute('data-video');
+    const data = videos[videoKey];
+    if (!data) return;
+
+    const thumbUrl = `https://i.ytimg.com/vi/${data.id}/hqdefault.jpg`;
+
+    card.innerHTML = `
+      <div class="video-card-thumb" style="background-image: url('${thumbUrl}'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+        <div class="video-card-overlay">
+          <div class="video-card-top">
+            ${data.badge ? `<span class="video-card-badge"><i class="fas fa-play" style="font-size:0.6rem;"></i> ${data.badge}</span>` : '<span></span>'}
+            <span class="video-card-duration"><i class="far fa-clock" aria-hidden="true"></i> ${data.duration}</span>
+          </div>
+          <button type="button" class="video-play-center" aria-label="Phát video: ${data.title}" data-video-open="${videoKey}">
+            <i class="fas fa-play" aria-hidden="true"></i>
+          </button>
+          <div class="video-card-bottom">
+            <h5 class="video-card-title">${data.title}</h5>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Click whole thumb to trigger modal
+    const thumbWrap = card.querySelector('.video-card-thumb');
+    if (thumbWrap) {
+      thumbWrap.style.cursor = 'pointer';
+      thumbWrap.addEventListener('click', (e) => {
+        // Prevent if clicking on already attached button event
+        if (e.target.closest('.video-play-center')) return;
+        openVideoModal(videoKey);
+      });
+    }
+  });
+}
+
+// 14. Video Lightbox Modal
+let lastActiveVideoTrigger = null;
+
+function initVideoLightboxModal() {
+  const modal = document.getElementById('ivitechVideoModal');
+  const closeBtn = document.getElementById('videoModalCloseBtn');
+  const iframeWrap = document.getElementById('videoModalIframeWrap');
+  if (!modal || !iframeWrap) return;
+
+  // Delegate clicks on any button or element with [data-video-open]
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-video-open]');
+    if (trigger) {
+      e.preventDefault();
+      lastActiveVideoTrigger = trigger;
+      const videoKey = trigger.getAttribute('data-video-open');
+      openVideoModal(videoKey);
+    }
+  });
+
+  // Close via button
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      closeVideoModal();
+    });
+  }
+
+  // Close via backdrop click outside dialog
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeVideoModal();
+    }
+  });
+
+  // Close via Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hidden) {
+      closeVideoModal();
+    }
+  });
+}
+
+function openVideoModal(videoKey) {
+  const modal = document.getElementById('ivitechVideoModal');
+  const iframeWrap = document.getElementById('videoModalIframeWrap');
+  const modalTitle = document.getElementById('videoModalTitle');
+  const modalDuration = document.getElementById('videoModalDuration');
+  const closeBtn = document.getElementById('videoModalCloseBtn');
+
+  if (!modal || !iframeWrap) return;
+
+  const videos = window.IVITECH_VIDEOS || {};
+  const data = videos[videoKey];
+  if (!data) return;
+
+  if (modalTitle) modalTitle.textContent = data.title;
+  if (modalDuration) {
+    modalDuration.innerHTML = `<i class="far fa-clock" aria-hidden="true"></i> <span>Thời lượng: ${data.duration}</span>`;
+  }
+
+  // Inject privacy-enhanced YouTube embed (youtube-nocookie)
+  iframeWrap.innerHTML = `
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/${data.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+      title="${data.title}"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      loading="lazy"
+      class="video-modal-iframe">
+    </iframe>
+  `;
+
+  modal.hidden = false;
+  setTimeout(() => {
+    modal.classList.add('is-open');
+  }, 10);
+  document.body.style.overflow = 'hidden';
+
+  trackEvent('Video', 'OpenModal', data.title);
+
+  // Focus trap: set focus on close button
+  setTimeout(() => {
+    if (closeBtn) closeBtn.focus();
+  }, 50);
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById('ivitechVideoModal');
+  const iframeWrap = document.getElementById('videoModalIframeWrap');
+
+  if (!modal) return;
+
+  modal.classList.remove('is-open');
+
+  // Crucial: Clear iframe DOM immediately to terminate YouTube audio/video playback
+  if (iframeWrap) {
+    iframeWrap.innerHTML = '';
+  }
+
+  setTimeout(() => {
+    modal.hidden = true;
+  }, 200);
+  document.body.style.overflow = '';
+
+  // Restore keyboard focus to the triggering element
+  if (lastActiveVideoTrigger) {
+    try {
+      lastActiveVideoTrigger.focus();
+    } catch (e) {
+      // safe ignore
+    }
+  }
+}
+
