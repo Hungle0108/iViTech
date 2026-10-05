@@ -1,0 +1,48 @@
+{
+  "_readme": "Bộ ảnh bổ sung cho Motion Kit. Được generate_images.py gộp tự động với image_manifest.json. Dùng chung 'styles' và 'negative' của manifest chính.",
+  "styles": {
+    "backdrop": "Soft, abstract, low-detail background photograph or render with very gentle depth of field, large calm areas suitable for placing white text on top after a dark navy overlay. Cool navy (#0B2A6B) and royal blue (#1F5FE0) tones with faint cyan (#5BC8F5) light bokeh. No focal subject that competes with text."
+  },
+  "images": [
+    {
+      "id": "home-contact-bg",
+      "page": "index.html",
+      "section": "#contact — ảnh nền mờ phía sau khối liên hệ (dùng .section-bg-wrap)",
+      "aspect_ratio": "16:9",
+      "style": "backdrop",
+      "prompt": "Blurred wide view of a modern Vietnamese government service centre at dusk, warm interior lights and silhouettes of staff helping citizens at counters, seen through glass, strongly out of focus.",
+      "alt": "",
+      "sizes": "100vw"
+    },
+    {
+      "id": "product-cta-bg",
+      "page": "product-*.html",
+      "section": "Khối CTA 'Cùng xây dựng giải pháp…' cuối mỗi trang sản phẩm — ảnh nền mờ dùng chung",
+      "aspect_ratio": "21:9",
+      "style": "backdrop",
+      "prompt": "Abstract flowing network of thin glowing lines and small nodes forming gentle waves across a deep navy space, suggesting data connecting people, documents and classrooms, very soft and minimal.",
+      "alt": "",
+      "sizes": "100vw"
+    },
+    {
+      "id": "home-process-banner",
+      "page": "index.html",
+      "section": "#process — dải minh họa ngay dưới tiêu đề, phía trên 5 bước",
+      "aspect_ratio": "21:9",
+      "style": "illustration",
+      "prompt": "Isometric horizontal journey of five connected platforms from left to right: a person surveying shelves of documents with a clipboard, a planning table with blueprints, a small pilot setup of laptops and a display, a training session with a trainer and three learners, and a support desk with a headset and a growing green chart. A single continuous path links the five platforms.",
+      "alt": "Hành trình 5 bước: khảo sát, lập phương án, thí điểm, đào tạo, đồng hành vận hành",
+      "sizes": "(min-width: 1200px) 1120px, 100vw"
+    },
+    {
+      "id": "home-faq-side",
+      "page": "index.html",
+      "section": "#faq — cột trái (≥1024px) cạnh danh sách câu hỏi; ẩn trên mobile",
+      "aspect_ratio": "4:5",
+      "style": "illustration",
+      "prompt": "Isometric scene of a friendly consultant at a desk with a laptop answering questions, floating speech bubbles containing only simple icons (a shield, a server, a calendar, a graduation cap, a coin), a small plant, calm and welcoming.",
+      "alt": "Chuyên gia iViTech giải đáp thắc mắc",
+      "sizes": "(min-width: 1024px) 380px, 0px"
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+ "_readme": "Mỗi ô ảnh (theo id trong manifest) dùng một bố cục: hub (thiết bị trung tâm + các huy hiệu nối vào), broken (giống hub nhưng màu xám, đường nối đứt — dùng cho 'điểm nghẽn'), flow (các bước từ trái sang phải), scene (màn hình lớn + hàng thiết bị + người hai bên), backdrop (nền mạng lưới tối, dùng làm ảnh nền). Icon là tên Font Awesome 6 Free (solid), xem fontawesome.com/search?ic=free&s=solid. accent: blue | navy | cyan | green. Đổi 'seed' (số bất kỳ) để ra biến thể bố cục khác.",
+ "palette": {
+  "navy": "#0B2A6B",
+  "blue": "#1F5FE0",
+  "cyan": "#5BC8F5",
+  "green": "#22C55E",
+  "bg1": "#F7FAFF",
+  "bg2": "#E6EEFD"
+ },
+ "images": {
+  "home-challenge-data": {
+   "layout": "broken",
+   "main": "database",
+   "satellites": [
+    "file-lines",
+    "folder-open",
+    "box-archive",
+    "copy"
+   ]
+  },
+  "home-challenge-tech": {
+   "layout": "broken",
+   "main": "gears",
+   "satellites": [
+    "robot",
+    "puzzle-piece",
+    "laptop",
+    "microchip"
+   ]
+  },
+  "home-challenge-tools": {
+   "layout": "broken",
+   "main": "circle-nodes",
+   "satellites": [
+    "user",
+    "user-tie",
+    "user",
+    "user-tie"
+   ]
+  },
+  "home-challenge-devices": {
+   "layout": "broken",
+   "main": "tv",
+   "satellites": [
+    "tablet-screen-button",
+    "laptop",
+    "tablet-screen-button",
+    "book-open"
+   ]
+  },
+  "home-role-gov": {
+   "layout": "scene",
+   "main": "building-columns",
+   "devices": [
+    "file-signature",
+    "stamp",
+    "comments"
+   ],
+   "people": [
+    "user-tie",
+    "user"
+   ],
+   "accent": "navy"
+  },
+  "home-role-business": {
+   "layout": "scene",
+   "main": "chart-pie",
+   "devices": [
+    "id-card",
+    "clock",
+    "money-check-dollar"
+   ],
+   "people": [
+    "user-tie",
+    "user-check"
+   ],
+   "accent": "blue"
+  },
+  "home-role-school": {
+   "layout": "scene",
+   "main": "chalkboard-user",
+   "devices": [
+    "tablet-screen-button",
+    "book-open",
+    "pencil"
+   ],
+   "people": [
+    "user-graduate",
+    "children"
+   ],
+   "accent": "cyan"
+  },
+  "home-layer-1": {
+   "layout": "flow",
+   "steps": [
+    "box-archive",
+    "folder-tree",
+    "file-arrow-up",
+    "database",
+    "magnifying-glass",
+    "brain"
+   ],
+   "accent": "navy"
+  },
+  "home-layer-2": {
+   "layout": "hub",
+   "main": "robot",
+   "satellites": [
+    "scale-balanced",
+    "pen-to-square",
+    "comments",
+    "users",
+    "database"
+   ],
+   "accent": "blue"
+  },
+  "home-layer-3": {
+   "layout": "scene",
+   "main": "chalkboard-user",
+   "devices": [
+    "tablet-screen-button",
+    "tablet-screen-button",
+    "tablet-screen-button"
+   ],
+   "people": [
+    "house",
+    "user-graduate"
+   ],
+   "accent": "cyan"
+  },
+  "home-layer-4": {
+   "layout": "hub",
+   "main": "user-graduate",
+   "satellites": [
+    "robot",
+    "language",
+    "code",
+    "screwdriver-wrench",
+    "trophy"
+   ],
+   "accent": "green"
+  },
+  "home-case-public": {
+   "layout": "scene",
+   "main": "landmark",
+   "devices": [
+    "box-archive",
+    "file-lines",
+    "magnifying-glass"
+   ],
+   "people": [
+    "user-tie",
+    "user"
+   ],
+   "accent": "navy"
+  },
+  "home-case-business": {
+   "layout": "hub",
+   "main": "id-card",
+   "satellites": [
+    "clock",
+    "users",
+    "money-check-dollar",
+    "calendar-check",
+    "industry"
+   ],
+   "accent": "blue"
+  },
+  "home-case-school": {
+   "layout": "hub",
+   "main": "robot",
+   "satellites": [
+    "user-graduate",
+    "code",
+    "screwdriver-wrench",
+    "trophy",
+    "lightbulb"
+   ],
+   "accent": "green"
+  },
+  "home-about": {
+   "layout": "scene",
+   "main": "person-chalkboard",
+   "devices": [
+    "laptop",
+    "laptop",
+    "laptop"
+   ],
+   "people": [
+    "user-tie",
+    "users"
+   ],
+   "accent": "blue"
+  },
+  "og-image": {
+   "layout": "flow",
+   "steps": [
+    "box-archive",
+    "database",
+    "robot",
+    "chalkboard-user",
+    "user-graduate"
+   ],
+   "accent": "blue"
+  },
+  "digitization-hero": {
+   "layout": "hub",
+   "main": "file-lines",
+   "satellites": [
+    "box-archive",
+    "print",
+    "database",
+    "magnifying-glass",
+    "shield-halved"
+   ],
+   "accent": "navy"
+  },
+  "digitization-overview": {
+   "layout": "flow",
+   "steps": [
+    "folder-open",
+    "file-arrow-up",
+    "file-lines",
+    "database",
+    "brain"
+   ],
+   "accent": "navy"
+  },
+  "smart-ivier-hero": {
+   "layout": "hub",
+   "main": "robot",
+   "satellites": [
+    "building-columns",
+    "scale-balanced",
+    "file-signature",
+    "comments",
+    "shield-halved"
+   ],
+   "accent": "blue"
+  },
+  "smart-ivier-overview": {
+   "layout": "flow",
+   "steps": [
+    "database",
+    "scale-balanced",
+    "pen-to-square",
+    "comments",
+    "stamp"
+   ],
+   "accent": "blue"
+  },
+  "ivihrm-hero": {
+   "layout": "hub",
+   "main": "users",
+   "satellites": [
+    "id-card",
+    "clock",
+    "money-check-dollar",
+    "calendar-check",
+    "chart-pie"
+   ],
+   "accent": "blue"
+  },
+  "ivihrm-overview": {
+   "layout": "flow",
+   "steps": [
+    "id-card",
+    "file-import",
+    "user-check",
+    "fingerprint",
+    "chart-column"
+   ],
+   "accent": "blue"
+  },
+  "smart-study-2-hero": {
+   "layout": "hub",
+   "main": "tablet-screen-button",
+   "satellites": [
+    "book-open",
+    "shield-halved",
+    "eye",
+    "battery-full",
+    "user-graduate"
+   ],
+   "accent": "cyan"
+  },
+  "smart-study-2-overview": {
+   "layout": "scene",
+   "main": "chalkboard",
+   "devices": [
+    "tablet-screen-button",
+    "tablet-screen-button",
+    "tablet-screen-button",
+    "tablet-screen-button"
+   ],
+   "people": [
+    "person-chalkboard",
+    "user-graduate"
+   ],
+   "accent": "cyan"
+  },
+  "interactive-displays-hero": {
+   "layout": "scene",
+   "main": "hand-pointer",
+   "devices": [
+    "laptop",
+    "mobile-screen-button",
+    "tablet-screen-button"
+   ],
+   "people": [
+    "person-chalkboard",
+    "children"
+   ],
+   "accent": "cyan"
+  },
+  "interactive-displays-overview": {
+   "layout": "hub",
+   "main": "tv",
+   "satellites": [
+    "hand-pointer",
+    "wifi",
+    "pen",
+    "users",
+    "shield-halved"
+   ],
+   "accent": "cyan"
+  },
+  "nexta-hero": {
+   "layout": "hub",
+   "main": "mobile-screen-button",
+   "satellites": [
+    "house",
+    "book-open",
+    "star",
+    "bell",
+    "user-graduate"
+   ],
+   "accent": "cyan"
+  },
+  "nexta-overview": {
+   "layout": "flow",
+   "steps": [
+    "school",
+    "chalkboard-user",
+    "book-open",
+    "mobile-screen-button",
+    "house"
+   ],
+   "accent": "cyan"
+  },
+  "ivivi-hero": {
+   "layout": "hub",
+   "main": "robot",
+   "satellites": [
+    "code",
+    "screwdriver-wrench",
+    "language",
+    "lightbulb",
+    "user-graduate"
+   ],
+   "accent": "green"
+  },
+  "ivivi-overview": {
+   "layout": "scene",
+   "main": "trophy",
+   "devices": [
+    "robot",
+    "laptop",
+    "robot"
+   ],
+   "people": [
+    "user-graduate",
+    "children"
+   ],
+   "accent": "green"
+  },
+  "home-process-banner": {
+   "layout": "flow",
+   "steps": [
+    "clipboard-list",
+    "diagram-project",
+    "laptop",
+    "person-chalkboard",
+    "headset"
+   ],
+   "accent": "blue"
+  },
+  "home-faq-side": {
+   "layout": "hub",
+   "main": "headset",
+   "satellites": [
+    "shield-halved",
+    "server",
+    "calendar-check",
+    "graduation-cap",
+    "money-check-dollar"
+   ],
+   "accent": "blue"
+  },
+  "home-contact-bg": {
+   "layout": "backdrop"
+  },
+  "product-cta-bg": {
+   "layout": "backdrop"
+  }
+ }
+}

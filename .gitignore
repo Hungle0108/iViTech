@@ -9,3 +9,5 @@ __pycache__/
 # OS Files
 .DS_Store
 Thumbs.db
+tools/_incoming/
+tools/_preview/

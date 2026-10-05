@@ -18,9 +18,9 @@
       }
     ],
     "prompt_hash": "803946d5f4bb2b96",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:46:59+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:33+00:00"
   },
   "home-challenge-tech": {
     "files": [
@@ -41,9 +41,9 @@
       }
     ],
     "prompt_hash": "6a36cf66d3771cd1",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:46:59+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:34+00:00"
   },
   "home-challenge-tools": {
     "files": [
@@ -64,9 +64,9 @@
       }
     ],
     "prompt_hash": "2b30265653fc2d5f",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:00+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:35+00:00"
   },
   "home-challenge-devices": {
     "files": [
@@ -87,9 +87,9 @@
       }
     ],
     "prompt_hash": "681a03080936488d",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:00+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:34+00:00"
   },
   "home-role-gov": {
     "files": [
@@ -110,9 +110,9 @@
       }
     ],
     "prompt_hash": "9eb8743b148099c8",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:00+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:37+00:00"
   },
   "home-role-business": {
     "files": [
@@ -133,9 +133,9 @@
       }
     ],
     "prompt_hash": "22ddc1ef7bec8900",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:01+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:36+00:00"
   },
   "home-role-school": {
     "files": [
@@ -156,9 +156,9 @@
       }
     ],
     "prompt_hash": "9928d4dffcd8873b",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:01+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:38+00:00"
   },
   "home-layer-1": {
     "files": [
@@ -179,9 +179,9 @@
       }
     ],
     "prompt_hash": "953ee3a8b50186d8",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:01+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:35+00:00"
   },
   "home-layer-2": {
     "files": [
@@ -202,9 +202,9 @@
       }
     ],
     "prompt_hash": "8c60c49441b6c3f1",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:02+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:35+00:00"
   },
   "home-layer-3": {
     "files": [
@@ -225,9 +225,9 @@
       }
     ],
     "prompt_hash": "3dcc6ff58333a85c",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:02+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:36+00:00"
   },
   "home-layer-4": {
     "files": [
@@ -248,9 +248,9 @@
       }
     ],
     "prompt_hash": "38d44cdd98cd3b30",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:02+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:36+00:00"
   },
   "home-case-public": {
     "files": [
@@ -271,9 +271,9 @@
       }
     ],
     "prompt_hash": "73240eed47e408a5",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:03+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:32+00:00"
   },
   "home-case-business": {
     "files": [
@@ -294,9 +294,9 @@
       }
     ],
     "prompt_hash": "e485b3430749a65a",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:03+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:32+00:00"
   },
   "home-case-school": {
     "files": [
@@ -317,9 +317,9 @@
       }
     ],
     "prompt_hash": "d49b1f0c236c0dc9",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:03+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:33+00:00"
   },
   "home-about": {
     "files": [
@@ -340,9 +340,9 @@
       }
     ],
     "prompt_hash": "64b4647fd6098f33",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:04+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:32+00:00"
   },
   "og-image": {
     "files": [
@@ -353,9 +353,9 @@
       }
     ],
     "prompt_hash": "68d96d3a8a52f3f8",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:04+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:41+00:00"
   },
   "digitization-hero": {
     "files": [
@@ -376,9 +376,9 @@
       }
     ],
     "prompt_hash": "5e326364c7b9f5e3",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:04+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:31+00:00"
   },
   "digitization-overview": {
     "files": [
@@ -399,9 +399,9 @@
       }
     ],
     "prompt_hash": "ab3ae8708205fa2f",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:04+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:31+00:00"
   },
   "smart-ivier-hero": {
     "files": [
@@ -422,9 +422,9 @@
       }
     ],
     "prompt_hash": "d0d731b49625704b",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:05+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:42+00:00"
   },
   "smart-ivier-overview": {
     "files": [
@@ -445,9 +445,9 @@
       }
     ],
     "prompt_hash": "5df128199167350f",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:05+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:42+00:00"
   },
   "ivihrm-hero": {
     "files": [
@@ -468,9 +468,9 @@
       }
     ],
     "prompt_hash": "fd2b604e61628c0a",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:05+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:39+00:00"
   },
   "ivihrm-overview": {
     "files": [
@@ -491,9 +491,9 @@
       }
     ],
     "prompt_hash": "2a8506f932fcbe35",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:05+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:40+00:00"
   },
   "smart-study-2-hero": {
     "files": [
@@ -514,9 +514,9 @@
       }
     ],
     "prompt_hash": "e924ced201559f00",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:06+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:43+00:00"
   },
   "smart-study-2-overview": {
     "files": [
@@ -537,9 +537,9 @@
       }
     ],
     "prompt_hash": "fc8d6e3a507e05eb",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:06+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:43+00:00"
   },
   "interactive-displays-hero": {
     "files": [
@@ -560,9 +560,9 @@
       }
     ],
     "prompt_hash": "b1d3216d1b092e1f",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:06+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:38+00:00"
   },
   "interactive-displays-overview": {
     "files": [
@@ -583,9 +583,9 @@
       }
     ],
     "prompt_hash": "b68af32cdc76eefe",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:07+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:39+00:00"
   },
   "nexta-hero": {
     "files": [
@@ -606,9 +606,9 @@
       }
     ],
     "prompt_hash": "fd97e9ff4f5cc3fe",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:07+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:41+00:00"
   },
   "nexta-overview": {
     "files": [
@@ -629,9 +629,9 @@
       }
     ],
     "prompt_hash": "f3f01f38d4368958",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:08+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:41+00:00"
   },
   "ivivi-hero": {
     "files": [
@@ -652,9 +652,9 @@
       }
     ],
     "prompt_hash": "0660e3743dd438f6",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:08+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:40+00:00"
   },
   "ivivi-overview": {
     "files": [
@@ -675,8 +675,75 @@
       }
     ],
     "prompt_hash": "afef45601a626278",
-    "model": "placeholder",
-    "placeholder": true,
-    "generated_at": "2026-10-04T08:47:08+00:00"
+    "model": "illustration:offline",
+    "placeholder": "illustration",
+    "generated_at": "2026-10-05T13:05:41+00:00"
+  },
+  "home-contact-bg": {
+    "files": [
+      {
+        "path": "assets/img/generated/home-contact-bg-640.webp",
+        "w": 640,
+        "h": 357
+      },
+      {
+        "path": "assets/img/generated/home-contact-bg-1024.webp",
+        "w": 1024,
+        "h": 572
+      }
+    ],
+    "prompt_hash": "38265db8b8f56e82",
+    "model": "import:home-contact-bg.png",
+    "placeholder": false,
+    "generated_at": "2026-10-05T12:24:19+00:00"
+  },
+  "product-cta-bg": {
+    "files": [
+      {
+        "path": "assets/img/generated/product-cta-bg-640.webp",
+        "w": 640,
+        "h": 357
+      },
+      {
+        "path": "assets/img/generated/product-cta-bg-1024.webp",
+        "w": 1024,
+        "h": 572
+      }
+    ],
+    "prompt_hash": "f2827504a299f030",
+    "model": "import:product-cta-bg.png",
+    "placeholder": false,
+    "generated_at": "2026-10-05T12:24:20+00:00"
+  },
+  "home-process-banner": {
+    "files": [
+      {
+        "path": "assets/img/generated/home-process-banner-640.webp",
+        "w": 640,
+        "h": 357
+      },
+      {
+        "path": "assets/img/generated/home-process-banner-1024.webp",
+        "w": 1024,
+        "h": 572
+      }
+    ],
+    "prompt_hash": "c4d33db4f0bd3d1f",
+    "model": "import:home-process-banner.png",
+    "placeholder": false,
+    "generated_at": "2026-10-05T12:24:20+00:00"
+  },
+  "home-faq-side": {
+    "files": [
+      {
+        "path": "assets/img/generated/home-faq-side-640.webp",
+        "w": 640,
+        "h": 857
+      }
+    ],
+    "prompt_hash": "4886af232fe9f4b2",
+    "model": "import:home-faq-side.png",
+    "placeholder": false,
+    "generated_at": "2026-10-05T12:24:19+00:00"
   }
 }

@@ -1,0 +1,194 @@
+/*!
+ * iViTech Motion Kit v1.0 — CSS
+ * Nạp SAU css/styles.css. Mọi hiệu ứng hover dùng :where() (độ ưu tiên 0)
+ * nên CSS gốc của site luôn thắng nếu có khai báo trùng.
+ */
+:root {
+  --m-ease: cubic-bezier(.22, .61, .36, 1);
+  --m-ease-out: cubic-bezier(.16, 1, .3, 1);
+  --m-dur: .75s;
+  --m-dist: 24px;
+  --m-brand-1: #002561;   /* navy — chỉnh cho khớp :root của styles.css */
+  --m-brand-2: #2363EB;   /* royal blue */
+  --m-brand-3: #0891B2;   /* cyan */
+  --m-accent: #15803D;    /* green */
+}
+
+/* =========================================================
+ * 1. Reveal khi cuộn (chỉ ẩn khi JS đã sẵn sàng)
+ * ========================================================= */
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transition:
+    opacity var(--m-dur) var(--m-ease),
+    transform var(--m-dur) var(--m-ease-out),
+    clip-path .9s var(--m-ease-out),
+    filter var(--m-dur) var(--m-ease);
+  transition-delay: var(--m-d, 0ms);
+  will-change: opacity, transform;
+}
+.motion-ready [data-reveal="fade-up"]    { transform: translate3d(0, var(--m-dist), 0); }
+.motion-ready [data-reveal="fade-down"]  { transform: translate3d(0, calc(var(--m-dist) * -1), 0); }
+.motion-ready [data-reveal="fade-left"]  { transform: translate3d(calc(var(--m-dist) * 1.4), 0, 0); }
+.motion-ready [data-reveal="fade-right"] { transform: translate3d(calc(var(--m-dist) * -1.4), 0, 0); }
+.motion-ready [data-reveal="zoom"]       { transform: scale(.94); }
+.motion-ready [data-reveal="blur"]       { filter: blur(8px); transform: translate3d(0, 12px, 0); }
+/* wipe: khung giữ nguyên (không cắt bóng đổ), ảnh bên trong được "kéo màn" từ trên xuống */
+.motion-ready [data-reveal="wipe"] { opacity: 1; }
+.motion-ready [data-reveal="wipe"] img {
+  clip-path: inset(0 0 100% 0);
+  transform: scale(1.12);
+  transition: transform 1.4s var(--m-ease-out), clip-path .9s var(--m-ease-out);
+  transition-delay: var(--m-d, 0ms);
+}
+
+.motion-ready [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+.motion-ready [data-reveal="wipe"].is-in img { transform: scale(1); clip-path: inset(0 0 0 0); }
+
+/* =========================================================
+ * 2. Thanh tiến độ cuộn
+ * ========================================================= */
+.motion-progress {
+  position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 10000;
+  background: linear-gradient(90deg, var(--m-brand-2), var(--m-brand-3), var(--m-accent));
+  transform-origin: 0 50%; transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* =========================================================
+ * 3. Hero
+ * ========================================================= */
+/* Chữ gradient chuyển màu chậm (chỉ có tác dụng nếu đang dùng background-clip:text) */
+:where(.gradient-text, .product-hero .accent) {
+  background-size: 220% auto;
+  animation: m-gradient 9s ease-in-out infinite;
+}
+@keyframes m-gradient { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+/* Quầng sáng trôi nhẹ + parallax (dùng `translate` để không đè transform gốc) */
+:where(.hero-glow-orb) { translate: 0 var(--m-py, 0); animation: m-float 14s ease-in-out infinite; }
+:where(.hero-orb-2) { animation-duration: 18s; animation-direction: alternate-reverse; }
+@keyframes m-float {
+  0%, 100% { scale: 1; rotate: 0deg; }
+  50% { scale: 1.08; rotate: 8deg; }
+}
+
+/* Thẻ mô phỏng nghiêng theo chuột */
+:where([data-tilt]:not([data-reveal])) {
+  transform: perspective(1000px) rotateX(var(--m-rx, 0deg)) rotateY(var(--m-ry, 0deg));
+  transition: transform .5s var(--m-ease-out);
+  transform-style: preserve-3d;
+}
+:where([data-tilt].is-tilting) { transition-duration: .12s; }
+
+/* Ảnh hero trang sản phẩm: zoom rất chậm (Ken Burns) */
+:where(.product-hero__visual .media__img) { animation: m-kenburns 22s ease-in-out infinite alternate; transform-origin: 60% 40%; }
+@keyframes m-kenburns { from { scale: 1; } to { scale: 1.08; } }
+
+/* =========================================================
+ * 4. Thẻ: nổi lên khi hover + ảnh trong thẻ zoom
+ * ========================================================= */
+:where(.observation-card, .case-card, .feature-card, .related-card, .team-card,
+       .cap-step-card, .trust-logo-card, .process-step-box, .step-card-item, .audience-chip) {
+  transition: transform .35s var(--m-ease-out), box-shadow .35s var(--m-ease), border-color .35s var(--m-ease);
+}
+@media (hover: hover) {
+  :where(.observation-card, .case-card, .feature-card, .related-card, .team-card, .cap-step-card):hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px -18px rgba(11, 42, 107, .35);
+  }
+  :where(.trust-logo-card, .audience-chip):hover { transform: translateY(-3px); }
+}
+:where(.media) { overflow: hidden; }
+:where(.media__img) { transition: transform .9s var(--m-ease-out), opacity .6s var(--m-ease); }
+@media (hover: hover) {
+  :where(.case-card, .related-card, .observation-card, .eco-pane):hover .media__img { transform: scale(1.06); }
+}
+/* Ảnh tải xong mới hiện (tránh "giật" khi ảnh nặng) */
+.motion-ready :where(img.media__img):not(.is-loaded) { opacity: 0; }
+
+/* Icon trong thẻ tính năng nảy nhẹ */
+:where(.feature-card, .observation-card, .cap-step-card) :where(i, svg) { transition: transform .45s var(--m-ease-out); }
+@media (hover: hover) {
+  :where(.feature-card, .observation-card, .cap-step-card):hover :where(i, svg) { transform: translateY(-2px) rotate(-6deg) scale(1.08); }
+}
+
+/* Mũi tên trong link "Chi tiết" trượt sang phải */
+:where(.related-card-arrow, a .fa-arrow-right, a .fa-arrow-right-long, a .fa-chevron-right) { transition: transform .3s var(--m-ease-out); }
+@media (hover: hover) {
+  :where(a:hover .fa-arrow-right, a:hover .fa-arrow-right-long, a:hover .fa-chevron-right, .related-card:hover .related-card-arrow) { transform: translateX(4px); }
+}
+
+/* =========================================================
+ * 5. Nút: vệt sáng quét qua khi hover
+ * ========================================================= */
+:where(.btn-primary, .btn-hero-primary) { position: relative; overflow: hidden; isolation: isolate; }
+:where(.btn-primary, .btn-hero-primary)::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+}
+@media (hover: hover) {
+  :where(.btn-primary, .btn-hero-primary):hover::after { transform: translateX(120%); transition: transform .8s var(--m-ease); }
+}
+:where(.btn, .btn-hero-primary, .btn-hero-outline, .btn-ghost-hero) { transition: transform .2s var(--m-ease), box-shadow .3s var(--m-ease), background-color .3s; }
+:where(.btn, .btn-hero-primary, .btn-hero-outline, .btn-ghost-hero):active { transform: scale(.97); }
+
+/* =========================================================
+ * 6. Quy trình: các bước sáng lần lượt
+ * ========================================================= */
+.motion-ready :where(.seq-item) { opacity: .35; transform: translateY(10px); transition: opacity .5s var(--m-ease), transform .6s var(--m-ease-out), box-shadow .5s, border-color .5s; }
+.motion-ready :where(.seq-item.is-step-on) { opacity: 1; transform: none; }
+:where(.seq-item.is-step-on) { animation: m-pop .6s var(--m-ease-out); }
+@keyframes m-pop { 0% { scale: .96; } 60% { scale: 1.03; } 100% { scale: 1; } }
+/* Thanh tiến độ phía trên stepper — chỉ bật khi thêm thuộc tính data-sequence-line */
+:where([data-sequence-line]) { position: relative; }
+:where([data-sequence-line].seq-run)::before {
+  content: ""; position: absolute; left: 0; top: -14px; height: 3px; border-radius: 3px;
+  width: calc(var(--m-progress, 0) * 100%);
+  background: linear-gradient(90deg, var(--m-brand-2), var(--m-accent));
+  transition: width .5s var(--m-ease);
+}
+@media (max-width: 767px) { :where([data-sequence-line].seq-run)::before { display: none; } }
+
+/* =========================================================
+ * 7. Tab / pane chuyển mượt
+ * ========================================================= */
+.motion-pane-in { animation: m-pane .5s var(--m-ease-out); }
+@keyframes m-pane { from { opacity: 0; translate: 0 14px; } to { opacity: 1; translate: 0 0; } }
+
+/* =========================================================
+ * 8. CTA / Liên hệ: ánh sáng theo con trỏ + nền chuyển màu
+ * ========================================================= */
+:where([data-spotlight]) { position: relative; isolation: isolate; }
+:where([data-spotlight])::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(520px circle at var(--m-mx, 50%) var(--m-my, 30%), rgba(91,200,245,.16), transparent 60%);
+  transition: opacity .4s; opacity: .9;
+}
+:where([data-spotlight]) > .container { position: relative; z-index: 1; }
+:where(.product-cta-section) {
+  background-size: 200% 200%;
+  animation: m-gradient 16s ease-in-out infinite;
+}
+
+/* =========================================================
+ * 9. Ảnh nền cho section (dùng với <img data-img=... class="section-bg">)
+ * ========================================================= */
+:where(.section-bg-wrap) { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+:where(.section-bg-wrap) img { width: 100%; height: 100%; object-fit: cover; opacity: .18; mix-blend-mode: luminosity; translate: 0 var(--m-py, 0); scale: 1.12; }
+:where(.section-bg-wrap)::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,42,107,.55), rgba(11,42,107,.92)); }
+
+/* =========================================================
+ * 10. Giảm chuyển động: tắt toàn bộ
+ * ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  [data-reveal], [data-reveal] img, .seq-item { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
+  .motion-progress { display: none; }
+}
+html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="off"] *::after { animation: none !important; transition: none !important; }

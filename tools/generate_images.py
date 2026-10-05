@@ -22,6 +22,12 @@ Lệnh (chạy từ thư mục gốc dự án):
   python tools/generate_images.py all                  # generate + inject
   python tools/generate_images.py import --only <id> --file path/to/anh.png
                                                        # dùng ảnh tạo bằng công cụ khác / ảnh thật
+  python tools/generate_images.py prompts              # xuất tools/image_prompts.md (cho công cụ
+                                                       # tạo ảnh có sẵn của Antigravity, không cần API key)
+  python tools/generate_images.py import-dir           # nhập mọi ảnh trong tools/_incoming/<id>.png|jpg|webp
+
+Manifest phụ: mọi file tools/image_manifest.<tên>.json (trừ .lock.json) được gộp tự động
+vào manifest chính — tiện thêm bộ ảnh mới mà không sửa file gốc.
 
 Tuỳ chọn khác: --model, --size (1K|2K|4K), --extra "thêm chỉ dẫn vào prompt", --dry-run
 
@@ -32,6 +38,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import fnmatch
 import hashlib
 import html as htmllib
 import json
@@ -59,6 +66,13 @@ LOCK_PATH = Path(__file__).resolve().parent / "image_manifest.lock.json"
 def load_manifest() -> dict:
     with open(MANIFEST_PATH, encoding="utf-8") as f:
         m = json.load(f)
+    for extra in sorted(MANIFEST_PATH.parent.glob("image_manifest.*.json")):
+        if extra.name.endswith(".lock.json"):
+            continue
+        with open(extra, encoding="utf-8") as f:
+            add = json.load(f)
+        m["styles"].update(add.get("styles", {}))
+        m["images"].extend(add.get("images", []))
     ids = [i["id"] for i in m["images"]]
     dup = {x for x in ids if ids.count(x) > 1}
     if dup:
@@ -105,8 +119,13 @@ def select(m: dict, only: str | None, page: str | None) -> list[dict]:
             sys.exit(f"[lỗi] không có id: {', '.join(sorted(unknown))}")
         imgs = [i for i in imgs if i["id"] in wanted]
     if page:
-        imgs = [i for i in imgs if i["page"] == page]
+        imgs = [i for i in imgs if page_match(page, i["page"])]
     return imgs
+
+
+def page_match(page: str, pattern: str) -> bool:
+    """manifest có thể ghi 'page' dạng mẫu, vd 'product-*.html' cho ảnh dùng chung."""
+    return page == pattern or fnmatch.fnmatch(page, pattern)
 
 
 # ----------------------------------------------------------------------------
@@ -346,6 +365,53 @@ def cmd_import(args, m: dict) -> None:
 
 
 # ----------------------------------------------------------------------------
+# Lệnh: prompts / import-dir (dùng công cụ tạo ảnh có sẵn của Antigravity)
+# ----------------------------------------------------------------------------
+INCOMING = Path(__file__).resolve().parent / "_incoming"
+
+
+def cmd_prompts(args, m: dict) -> None:
+    lock = load_lock()
+    out = Path(__file__).resolve().parent / "image_prompts.md"
+    rows = []
+    todo = [i for i in select(m, args.only, args.page)
+            if args.force or not lock.get(i["id"]) or lock[i["id"]].get("placeholder")
+            or lock[i["id"]].get("prompt_hash") != prompt_hash(build_prompt(m, i), i)]
+    rows.append("# Danh sách ảnh cần tạo\n")
+    rows.append("Với MỖI mục: dùng công cụ tạo ảnh, đúng tỉ lệ ghi kèm, prompt nguyên văn, "
+                f"lưu thành `tools/_incoming/<id>.png`. Xong hết thì chạy:\n\n"
+                "```\npython tools/generate_images.py import-dir\npython tools/generate_images.py inject\n```\n")
+    rows.append(f"Tổng: **{len(todo)} ảnh**.\n")
+    for i in todo:
+        rows.append(f"\n---\n\n## `{i['id']}` · tỉ lệ {i['aspect_ratio']}"
+                    + (f" (sẽ cắt {i['crop']})" if i.get("crop") else "")
+                    + f"\n\nVị trí: {i.get('section', i['page'])}  \nLưu: `tools/_incoming/{i['id']}.png`\n\n"
+                    + "```text\n" + build_prompt(m, i, args.extra) + f"\n\nAspect ratio: {i['aspect_ratio']}.\n```\n")
+    out.write_text("\n".join(rows), encoding="utf-8")
+    INCOMING.mkdir(exist_ok=True)
+    print(f"Đã ghi {out.relative_to(ROOT).as_posix()} ({len(todo)} ảnh). Thư mục lưu ảnh: tools/_incoming/")
+
+
+def cmd_import_dir(args, m: dict) -> None:
+    INCOMING.mkdir(exist_ok=True)
+    ids = {i["id"] for i in m["images"]}
+    files = [p for p in INCOMING.iterdir() if p.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp")]
+    if not files:
+        print("tools/_incoming/ đang trống.")
+        return
+    for f in sorted(files):
+        if f.stem not in ids:
+            print(f"[bỏ qua] {f.name}: tên file không trùng id nào trong manifest")
+            continue
+        args.only, args.file = f.stem, str(f)
+        cmd_import(args, m)
+        done = INCOMING / "_imported"
+        done.mkdir(exist_ok=True)
+        f.replace(done / f.name)
+    print("\nXong. Chạy tiếp: python tools/generate_images.py inject")
+
+
+# ----------------------------------------------------------------------------
 # Lệnh: inject
 # ----------------------------------------------------------------------------
 IMG_TAG_RE = re.compile(r"<img\b(?P<attrs>[^>]*?)\s*(?P<close>/?)>", re.I | re.S)
@@ -385,7 +451,7 @@ def build_img_tag(attrs: list[list], updates: dict, close: str) -> str:
 def cmd_inject(args, m: dict) -> None:
     lock = load_lock()
     by_id = {i["id"]: i for i in m["images"]}
-    pages = sorted({i["page"] for i in m["images"]} | set(html_pages()))
+    pages = sorted({i["page"] for i in m["images"] if "*" not in i["page"]} | set(html_pages()))
     if args.page:
         pages = [args.page]
     total = 0
@@ -500,7 +566,8 @@ def cmd_list(args, m: dict) -> None:
     print(f"{'ID':32} {'TRANG':34} {'TỈ LỆ':6} {'ẢNH':12} HTML")
     for img in select(m, args.only, args.page):
         e = lock.get(img["id"])
-        state = "—" if not e else ("placeholder" if e.get("placeholder") else "ok")
+        ph = e.get("placeholder") if e else None
+        state = "—" if not e else ("minh họa" if ph == "illustration" else "placeholder" if ph else "ok")
         if e and e.get("prompt_hash") != prompt_hash(build_prompt(m, img), img):
             state += "*"
         where = "og-meta" if img.get("type") == "og" else (",".join(in_html.get(img["id"], [])) or "CHƯA GẮN")
@@ -514,7 +581,7 @@ def cmd_check(args, m: dict) -> None:
     missing = sorted(ids - set(in_html))
     orphan = sorted(set(in_html) - {i["id"] for i in m["images"]})
     wrong_page = [f"{i['id']} (manifest: {i['page']}, HTML: {', '.join(in_html[i['id']])})"
-                  for i in m["images"] if i["id"] in in_html and i["page"] not in in_html[i["id"]]]
+                  for i in m["images"] if i["id"] in in_html and not any(page_match(pg, i["page"]) for pg in in_html[i["id"]])]
     ok = True
     if missing:
         ok = False
@@ -534,7 +601,7 @@ def cmd_check(args, m: dict) -> None:
 # ----------------------------------------------------------------------------
 def main() -> None:
     ap = argparse.ArgumentParser(description="Tạo & gắn ảnh cho website iViTech")
-    ap.add_argument("command", choices=["list", "check", "generate", "inject", "all", "import"])
+    ap.add_argument("command", choices=["list", "check", "generate", "inject", "all", "import", "prompts", "import-dir"])
     ap.add_argument("--only", help="danh sách id, phân tách bằng dấu phẩy")
     ap.add_argument("--page", help="chỉ xử lý một trang, vd product-ivivi.html")
     ap.add_argument("--force", action="store_true", help="tạo lại dù ảnh đã có")
@@ -558,6 +625,10 @@ def main() -> None:
         cmd_inject(args, m)
     elif args.command == "import":
         cmd_import(args, m)
+    elif args.command == "prompts":
+        cmd_prompts(args, m)
+    elif args.command == "import-dir":
+        cmd_import_dir(args, m)
     elif args.command == "all":
         cmd_generate(args, m)
         if not args.dry_run:

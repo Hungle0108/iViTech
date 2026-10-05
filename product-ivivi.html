@@ -28,6 +28,10 @@
 
   <!-- Design System -->
   <link rel="stylesheet" href="css/styles.css">
+  <!-- motion-kit head -->
+  <link rel="stylesheet" href="assets/css/motion.css?v=3">
+  <script>(function(d){try{if(d.getAttribute('data-motion')==='off'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('motion-ready');setTimeout(function(){if(!window.__ivMotion)d.classList.remove('motion-ready')},2500)}catch(e){}})(document.documentElement)</script>
+  <!-- /motion-kit -->
 
   <style>
     /* ============================================================
@@ -741,7 +745,12 @@
           </div>
         </div>
 
-              <!-- Embedded Video Showcase (iViVi Robotics & AI) -->
+        <!-- Overview Diagram -->
+        <figure class="media media--16x9" style="margin-top: 36px;">
+          <img data-img="ivivi-overview" class="media__img" alt="Giờ thực hành robotics: 20% lý thuyết, 80% thực hành" src="assets/img/generated/ivivi-overview-1024.webp" width="1024" height="576" loading="lazy" decoding="async" srcset="assets/img/generated/ivivi-overview-640.webp 640w, assets/img/generated/ivivi-overview-1024.webp 1024w, assets/img/generated/ivivi-overview-1600.webp 1600w" sizes="(min-width: 1200px) 1120px, 100vw">
+        </figure>
+
+        <!-- Embedded Video Showcase (iViVi Robotics & AI) -->
         <div style="margin-top: 48px;">
           <div class="section-head" style="margin-bottom: 24px;">
             <span class="eyebrow-pill green"><i class="fas fa-play-circle"></i> Trải nghiệm thực tế</span>
@@ -850,6 +859,9 @@
 
   <!-- ===================== CTA SECTION ===================== -->
   <section class="product-cta-section" aria-label="Kết nối với iViTech">
+    <div class="section-bg-wrap" aria-hidden="true">
+      <img data-img="product-cta-bg" alt="" data-parallax="0.12" src="assets/img/generated/product-cta-bg-1024.webp" width="1024" height="572" loading="lazy" decoding="async" srcset="assets/img/generated/product-cta-bg-640.webp 640w, assets/img/generated/product-cta-bg-1024.webp 1024w" sizes="100vw">
+    </div>
     <div class="container">
       <div class="inner">
         <h2>Cùng xây dựng giải pháp phù hợp với tổ chức của bạn</h2>
@@ -970,5 +982,6 @@
 
   <script src="assets/js/yt-fallback.js"></script>
   <script src="js/main.js"></script>
+<!-- motion-kit body --><script src="assets/js/motion.js?v=3" defer></script><!-- /motion-kit -->
 </body>
 </html>

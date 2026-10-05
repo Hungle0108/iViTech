@@ -40,6 +40,10 @@
 
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+  <!-- motion-kit head -->
+  <link rel="stylesheet" href="assets/css/motion.css?v=3">
+  <script>(function(d){try{if(d.getAttribute('data-motion')==='off'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('motion-ready');setTimeout(function(){if(!window.__ivMotion)d.classList.remove('motion-ready')},2500)}catch(e){}})(document.documentElement)</script>
+  <!-- /motion-kit -->
 
   <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
@@ -566,6 +570,9 @@
                   <div class="video-inline-player">
                     <iframe src="https://www.youtube-nocookie.com/embed/aTcj9CMrDiU?rel=0" title="Smart iVier – Hệ thống điều hành số cấp phường/xã" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
                   </div>
+                  <figure class="media media--16x9" id="govMediaImg" style="display: none;">
+                    <img data-img="home-role-gov" class="media__img" alt="Cán bộ bộ phận một cửa hỗ trợ người dân làm thủ tục" src="assets/img/generated/home-role-gov-1024.webp" width="1024" height="768" loading="lazy" decoding="async" srcset="assets/img/generated/home-role-gov-640.webp 640w, assets/img/generated/home-role-gov-1024.webp 1024w, assets/img/generated/home-role-gov-1600.webp 1600w" sizes="(min-width: 1024px) 40vw, 100vw">
+                  </figure>
                   <div class="video-caption-bar">
                     <div style="display: flex; align-items: center; gap: 8px;">
                       <span class="video-badge-live"><i class="fas fa-play"></i> Video thực tế (4:05)</span>
@@ -579,7 +586,7 @@
               <div class="roadmap-role-embed" data-role-embed="business" style="display: none;">
                 <div class="video-inline-box">
                   <figure class="media media--16x9">
-                    <img data-img="home-role-business" class="media__img" alt="Bộ phận nhân sự doanh nghiệp theo dõi dữ liệu trên hệ thống" src="assets/img/generated/home-role-business-1024.webp" width="1024" height="576" loading="lazy" decoding="async" srcset="assets/img/generated/home-role-business-640.webp 640w, assets/img/generated/home-role-business-1024.webp 1024w, assets/img/generated/home-role-business-1600.webp 1600w" sizes="(min-width: 1024px) 40vw, 100vw">
+                    <img data-img="home-role-business" class="media__img" alt="Bộ phận nhân sự doanh nghiệp theo dõi dữ liệu trên hệ thống" src="assets/img/generated/home-role-business-1024.webp" width="1024" height="768" loading="lazy" decoding="async" srcset="assets/img/generated/home-role-business-640.webp 640w, assets/img/generated/home-role-business-1024.webp 1024w, assets/img/generated/home-role-business-1600.webp 1600w" sizes="(min-width: 1024px) 40vw, 100vw">
                   </figure>
                   <div class="video-caption-bar">
                     <div style="display: flex; align-items: center; gap: 8px;">
@@ -596,6 +603,9 @@
                   <div class="video-inline-player">
                     <iframe id="roadmapSchoolIframe" src="https://www.youtube-nocookie.com/embed/emHzUM6OWJs?rel=0" title="Lớp học số với Smart Study 2 & học liệu Nexta" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
                   </div>
+                  <figure class="media media--16x9" id="schoolMediaImg" style="display: none;">
+                    <img data-img="home-role-school" class="media__img" alt="Lớp học số với màn hình tương tác tại trường phổ thông" src="assets/img/generated/home-role-school-1024.webp" width="1024" height="768" loading="lazy" decoding="async" srcset="assets/img/generated/home-role-school-640.webp 640w, assets/img/generated/home-role-school-1024.webp 1024w, assets/img/generated/home-role-school-1600.webp 1600w" sizes="(min-width: 1024px) 40vw, 100vw">
+                  </figure>
                   <div class="video-caption-bar" style="flex-direction: column; align-items: stretch; gap: 8px;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                       <span class="video-badge-live" style="background: #fef3c7; color: #b45309;"><i class="fas fa-graduation-cap"></i> Giáo dục thông minh</span>
@@ -1025,6 +1035,10 @@
         </p>
       </div>
 
+      <figure class="media media--21x9 process-banner">
+        <img data-img="home-process-banner" class="media__img" alt="Hành trình 5 bước: khảo sát, lập phương án, thí điểm, đào tạo, đồng hành vận hành" src="assets/img/generated/home-process-banner-1024.webp" width="1024" height="572" loading="lazy" decoding="async" srcset="assets/img/generated/home-process-banner-640.webp 640w, assets/img/generated/home-process-banner-1024.webp 1024w" sizes="(min-width: 1200px) 1120px, 100vw">
+      </figure>
+
       <div class="process-stepper-5">
         <div class="process-step-box">
           <div class="step-header-row">
@@ -1175,7 +1189,11 @@
         </p>
       </div>
 
-      <div class="faq-accordion">
+      <div class="faq-layout">
+        <figure class="media media--4x5 faq-side">
+          <img data-img="home-faq-side" class="media__img" alt="Chuyên gia iViTech giải đáp thắc mắc" src="assets/img/generated/home-faq-side-640.webp" width="640" height="857" loading="lazy" decoding="async">
+        </figure>
+        <div class="faq-accordion">
         <details class="faq-item" open>
           <summary class="faq-question">
             <span>Dữ liệu của cơ quan/doanh nghiệp được lưu trữ ở đâu? Có hỗ trợ máy chủ nội bộ (on-premise) không?</span>
@@ -1230,12 +1248,16 @@
             Có. Đội ngũ chuyên gia iViTech trực tiếp tổ chức các buổi tập huấn "cầm tay chỉ việc" cho đến khi mọi cán bộ đều sử dụng thành thạo. Đồng thời, chúng tôi duy trì kênh hỗ trợ kỹ thuật 24/7 và cập nhật miễn phí các văn bản pháp luật mới phát sinh.
           </div>
         </details>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===================== 10. CONTACT & CONSULTATION ===================== -->
   <section id="contact" class="contact-section-v2" aria-labelledby="contactTitle">
+    <div class="section-bg-wrap" aria-hidden="true">
+      <img data-img="home-contact-bg" alt="" data-parallax="0.12" src="assets/img/generated/home-contact-bg-1024.webp" width="1024" height="572" loading="lazy" decoding="async" srcset="assets/img/generated/home-contact-bg-640.webp 640w, assets/img/generated/home-contact-bg-1024.webp 1024w" sizes="100vw">
+    </div>
     <div class="container">
       <div class="contact-split-grid">
         <!-- Left info -->
@@ -1518,5 +1540,6 @@
   <script src="js/videos-data.js"></script>
   <script src="js/simulator-data.js"></script>
   <script src="js/main.js"></script>
+<!-- motion-kit body --><script src="assets/js/motion.js?v=3" defer></script><!-- /motion-kit -->
 </body>
 </html>
