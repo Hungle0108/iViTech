@@ -10,17 +10,12 @@
         "path": "assets/img/generated/home-challenge-data-1024.webp",
         "w": 1024,
         "h": 768
-      },
-      {
-        "path": "assets/img/generated/home-challenge-data-1600.webp",
-        "w": 1600,
-        "h": 1200
       }
     ],
     "prompt_hash": "803946d5f4bb2b96",
-    "model": "illustration:offline",
-    "placeholder": "illustration",
-    "generated_at": "2026-10-05T13:05:33+00:00"
+    "model": "import:home-challenge-data.jpg",
+    "placeholder": false,
+    "generated_at": "2026-10-08T13:03:00+00:00"
   },
   "home-challenge-tech": {
     "files": [
@@ -33,17 +28,12 @@
         "path": "assets/img/generated/home-challenge-tech-1024.webp",
         "w": 1024,
         "h": 768
-      },
-      {
-        "path": "assets/img/generated/home-challenge-tech-1600.webp",
-        "w": 1600,
-        "h": 1200
       }
     ],
     "prompt_hash": "6a36cf66d3771cd1",
-    "model": "illustration:offline",
-    "placeholder": "illustration",
-    "generated_at": "2026-10-05T13:05:34+00:00"
+    "model": "import:home-challenge-tech.jpg",
+    "placeholder": false,
+    "generated_at": "2026-10-08T13:03:01+00:00"
   },
   "home-challenge-tools": {
     "files": [
@@ -56,17 +46,12 @@
         "path": "assets/img/generated/home-challenge-tools-1024.webp",
         "w": 1024,
         "h": 768
-      },
-      {
-        "path": "assets/img/generated/home-challenge-tools-1600.webp",
-        "w": 1600,
-        "h": 1200
       }
     ],
     "prompt_hash": "2b30265653fc2d5f",
-    "model": "illustration:offline",
-    "placeholder": "illustration",
-    "generated_at": "2026-10-05T13:05:35+00:00"
+    "model": "import:home-challenge-tools.jpg",
+    "placeholder": false,
+    "generated_at": "2026-10-08T13:03:01+00:00"
   },
   "home-challenge-devices": {
     "files": [
@@ -79,17 +64,12 @@
         "path": "assets/img/generated/home-challenge-devices-1024.webp",
         "w": 1024,
         "h": 768
-      },
-      {
-        "path": "assets/img/generated/home-challenge-devices-1600.webp",
-        "w": 1600,
-        "h": 1200
       }
     ],
     "prompt_hash": "681a03080936488d",
-    "model": "illustration:offline",
-    "placeholder": "illustration",
-    "generated_at": "2026-10-05T13:05:34+00:00"
+    "model": "import:home-challenge-devices.jpg",
+    "placeholder": false,
+    "generated_at": "2026-10-08T13:03:01+00:00"
   },
   "home-role-gov": {
     "files": [
@@ -171,17 +151,12 @@
         "path": "assets/img/generated/home-layer-1-1024.webp",
         "w": 1024,
         "h": 576
-      },
-      {
-        "path": "assets/img/generated/home-layer-1-1600.webp",
-        "w": 1600,
-        "h": 900
       }
     ],
     "prompt_hash": "953ee3a8b50186d8",
-    "model": "illustration:offline",
-    "placeholder": "illustration",
-    "generated_at": "2026-10-05T13:05:35+00:00"
+    "model": "import:home-layer-1.jpg",
+    "placeholder": false,
+    "generated_at": "2026-10-08T13:46:51+00:00"
   },
   "home-layer-2": {
     "files": [
@@ -194,17 +169,12 @@
         "path": "assets/img/generated/home-layer-2-1024.webp",
         "w": 1024,
         "h": 576
-      },
-      {
-        "path": "assets/img/generated/home-layer-2-1600.webp",
-        "w": 1600,
-        "h": 900
       }
     ],
     "prompt_hash": "8c60c49441b6c3f1",
-    "model": "illustration:offline",
-    "placeholder": "illustration",
-    "generated_at": "2026-10-05T13:05:35+00:00"
+    "model": "import:home-layer-2.jpg",
+    "placeholder": false,
+    "generated_at": "2026-10-08T13:46:52+00:00"
   },
   "home-layer-3": {
     "files": [
@@ -217,17 +187,12 @@
         "path": "assets/img/generated/home-layer-3-1024.webp",
         "w": 1024,
         "h": 576
-      },
-      {
-        "path": "assets/img/generated/home-layer-3-1600.webp",
-        "w": 1600,
-        "h": 900
       }
     ],
     "prompt_hash": "3dcc6ff58333a85c",
-    "model": "illustration:offline",
-    "placeholder": "illustration",
-    "generated_at": "2026-10-05T13:05:36+00:00"
+    "model": "import:home-layer-3.jpg",
+    "placeholder": false,
+    "generated_at": "2026-10-08T13:46:52+00:00"
   },
   "home-layer-4": {
     "files": [
@@ -240,17 +205,12 @@
         "path": "assets/img/generated/home-layer-4-1024.webp",
         "w": 1024,
         "h": 576
-      },
-      {
-        "path": "assets/img/generated/home-layer-4-1600.webp",
-        "w": 1600,
-        "h": 900
       }
     ],
     "prompt_hash": "38d44cdd98cd3b30",
-    "model": "illustration:offline",
-    "placeholder": "illustration",
-    "generated_at": "2026-10-05T13:05:36+00:00"
+    "model": "import:home-layer-4.jpg",
+    "placeholder": false,
+    "generated_at": "2026-10-08T13:46:52+00:00"
   },
   "home-case-public": {
     "files": [
@@ -745,5 +705,95 @@
     "model": "import:home-faq-side.png",
     "placeholder": false,
     "generated_at": "2026-10-05T12:24:19+00:00"
+  },
+  "home-approach-01": {
+    "files": [
+      {
+        "path": "assets/img/generated/home-approach-01-640.webp",
+        "w": 640,
+        "h": 480
+      },
+      {
+        "path": "assets/img/generated/home-approach-01-1024.webp",
+        "w": 1024,
+        "h": 768
+      }
+    ],
+    "prompt_hash": "0f9478f81052d3d4",
+    "model": "import:home-approach-01.png",
+    "placeholder": false,
+    "generated_at": "2026-10-08T12:57:50+00:00"
+  },
+  "home-approach-02": {
+    "files": [
+      {
+        "path": "assets/img/generated/home-approach-02-640.webp",
+        "w": 640,
+        "h": 480
+      },
+      {
+        "path": "assets/img/generated/home-approach-02-1024.webp",
+        "w": 1024,
+        "h": 768
+      }
+    ],
+    "prompt_hash": "0f9478f81052d3d4",
+    "model": "import:home-approach-02.png",
+    "placeholder": false,
+    "generated_at": "2026-10-08T12:57:51+00:00"
+  },
+  "home-approach-03": {
+    "files": [
+      {
+        "path": "assets/img/generated/home-approach-03-640.webp",
+        "w": 640,
+        "h": 480
+      },
+      {
+        "path": "assets/img/generated/home-approach-03-1024.webp",
+        "w": 1024,
+        "h": 768
+      }
+    ],
+    "prompt_hash": "0f9478f81052d3d4",
+    "model": "import:home-approach-03.png",
+    "placeholder": false,
+    "generated_at": "2026-10-08T12:57:52+00:00"
+  },
+  "home-approach-04": {
+    "files": [
+      {
+        "path": "assets/img/generated/home-approach-04-640.webp",
+        "w": 640,
+        "h": 480
+      },
+      {
+        "path": "assets/img/generated/home-approach-04-1024.webp",
+        "w": 1024,
+        "h": 768
+      }
+    ],
+    "prompt_hash": "0f9478f81052d3d4",
+    "model": "import:home-approach-04.png",
+    "placeholder": false,
+    "generated_at": "2026-10-08T12:57:53+00:00"
+  },
+  "home-approach-05": {
+    "files": [
+      {
+        "path": "assets/img/generated/home-approach-05-640.webp",
+        "w": 640,
+        "h": 480
+      },
+      {
+        "path": "assets/img/generated/home-approach-05-1024.webp",
+        "w": 1024,
+        "h": 768
+      }
+    ],
+    "prompt_hash": "0f9478f81052d3d4",
+    "model": "import:home-approach-05.png",
+    "placeholder": false,
+    "generated_at": "2026-10-08T12:57:55+00:00"
   }
 }

@@ -1,0 +1,60 @@
+{
+  "_readme": "Ảnh cho 5 thẻ '5 Yếu tố kết nối iViTech' — do iViTech cung cấp, nhập bằng tools/upgrade_approach_cards.py. Không tạo lại bằng AI.",
+  "images": [
+    {
+      "id": "home-approach-01",
+      "page": "index.html",
+      "section": "#challenges — tab '5 Yếu tố kết nối', thẻ Bước 01 'Dữ liệu & Tri thức'",
+      "aspect_ratio": "4:3",
+      "style": "photo",
+      "prompt": "(ảnh do iViTech cung cấp — không tạo lại)",
+      "alt": "Cán bộ tra cứu hồ sơ đã số hóa trên hệ thống quản lý tài liệu",
+      "keep_illustration": true,
+      "sizes": "(min-width: 1025px) 20vw, (min-width: 769px) 50vw, 100vw"
+    },
+    {
+      "id": "home-approach-02",
+      "page": "index.html",
+      "section": "#challenges — tab '5 Yếu tố kết nối', thẻ Bước 02 'Phần mềm & AI'",
+      "aspect_ratio": "4:3",
+      "style": "photo",
+      "prompt": "(ảnh do iViTech cung cấp — không tạo lại)",
+      "alt": "Cán bộ dùng trợ lý AI để xử lý và phê duyệt công việc",
+      "keep_illustration": true,
+      "sizes": "(min-width: 1025px) 20vw, (min-width: 769px) 50vw, 100vw"
+    },
+    {
+      "id": "home-approach-03",
+      "page": "index.html",
+      "section": "#challenges — tab '5 Yếu tố kết nối', thẻ Bước 03 'Thiết bị & Môi trường'",
+      "aspect_ratio": "4:3",
+      "style": "photo",
+      "prompt": "(ảnh do iViTech cung cấp — không tạo lại)",
+      "alt": "Lớp học số với màn hình tương tác và máy tính bảng",
+      "keep_illustration": true,
+      "sizes": "(min-width: 1025px) 20vw, (min-width: 769px) 50vw, 100vw"
+    },
+    {
+      "id": "home-approach-04",
+      "page": "index.html",
+      "section": "#challenges — tab '5 Yếu tố kết nối', thẻ Bước 04 'Nội dung & Phương pháp'",
+      "aspect_ratio": "4:3",
+      "style": "photo",
+      "prompt": "(ảnh do iViTech cung cấp — không tạo lại)",
+      "alt": "Học sinh tự lắp ráp, lập trình robot và học kỹ năng công dân số",
+      "keep_illustration": true,
+      "sizes": "(min-width: 1025px) 20vw, (min-width: 769px) 50vw, 100vw"
+    },
+    {
+      "id": "home-approach-05",
+      "page": "index.html",
+      "section": "#challenges — tab '5 Yếu tố kết nối', thẻ Bước 05 'Triển khai & Đồng hành'",
+      "aspect_ratio": "4:3",
+      "style": "photo",
+      "prompt": "(ảnh do iViTech cung cấp — không tạo lại)",
+      "alt": "Chuyên viên iViTech đồng hành cùng cơ quan, doanh nghiệp và nhà trường",
+      "keep_illustration": true,
+      "sizes": "(min-width: 1025px) 20vw, (min-width: 769px) 50vw, 100vw"
+    }
+  ]
+}

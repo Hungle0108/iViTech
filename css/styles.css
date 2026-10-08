@@ -3125,3 +3125,28 @@ p {
   .faq-side { display: none; }
 }
 
+/* approach-cards:start */
+/* 5 Yếu tố kết nối: thẻ có ảnh, cùng kiểu với 4 điểm nghẽn (do tools/upgrade_approach_cards.py thêm) */
+.capabilities-stepper { gap: 20px; }
+.cap-step-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 16px 24px;
+  border-radius: var(--radius-md);
+}
+.cap-step-card > .media {
+  margin: 0 0 16px;
+  border-radius: calc(var(--radius-md) - 4px);
+  overflow: hidden;
+}
+.cap-step-card .media__img { transition: transform .9s cubic-bezier(.16, 1, .3, 1); }
+@media (hover: hover) {
+  .cap-step-card:hover .media__img { transform: scale(1.06); }
+}
+.cap-step-card .cap-title { line-height: 1.35; }
+/* Tablet: 2 cột, thẻ 05 trải hết hàng cuối để không bị lẻ */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .capabilities-stepper > .cap-step-card:last-child { grid-column: 1 / -1; }
+  .capabilities-stepper > .cap-step-card:last-child > .media { aspect-ratio: 21 / 9; }
+}
+/* approach-cards:end */
