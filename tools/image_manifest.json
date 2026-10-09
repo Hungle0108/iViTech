@@ -111,17 +111,17 @@
     {
       "id": "home-layer-3",
       "page": "index.html",
-      "section": "#ecosystem — panel Lớp 03 Môi trường học tập số",
+      "section": "#ecosystem — panel Lớp 03 Môi trường số",
       "aspect_ratio": "16:9",
       "style": "illustration",
       "prompt": "Isometric digital classroom: an interactive display on the wall, student tablets on desks, a cloud of learning content cards connecting the classroom to a small house icon (home learning).",
-      "alt": "Môi trường học tập số kết nối màn hình tương tác, máy tính bảng và học liệu",
+      "alt": "Môi trường số kết nối màn hình tương tác, máy tính bảng và học liệu",
       "sizes": "(min-width: 1024px) 55vw, 100vw"
     },
     {
       "id": "home-layer-4",
       "page": "index.html",
-      "section": "#ecosystem — panel Lớp 04 Năng lực số con người",
+      "section": "#ecosystem — panel Lớp 04 Năng lực số",
       "aspect_ratio": "16:9",
       "style": "illustration",
       "prompt": "Isometric maker lab: two students assembling a small wheeled robot on a table, a laptop with abstract block-code, a speech bubble symbolising foreign-language practice, and a green progress bar showing practice-heavy learning.",
