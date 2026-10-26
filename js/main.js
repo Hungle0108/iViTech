@@ -713,7 +713,7 @@ function initContactForm() {
     } catch (err) {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
-      alert('Có lỗi xảy ra khi kết nối máy chủ. Vui lòng liên hệ trực tiếp hotline 0989 318 789 hoặc Zalo để được hỗ trợ ngay.');
+      alert('Có lỗi xảy ra khi kết nối máy chủ. Vui lòng liên hệ trực tiếp hotline 0936 946 956 hoặc Zalo để được hỗ trợ ngay.');
       trackEvent('ContactForm', 'SubmitError', err.message);
     }
   });

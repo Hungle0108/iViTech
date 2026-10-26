@@ -44,7 +44,7 @@ OLD_FOOTER_RE = re.compile(
     re.DOTALL | re.IGNORECASE
 )
 
-# Các trang cần đồng bộ header & footer (8 trang chính + product-template)
+# Các trang cần đồng bộ header & footer (8 trang chính + product-template + bài viết)
 TARGET_PAGES = [
     "index.html",
     "product-digitization.html",
@@ -55,6 +55,7 @@ TARGET_PAGES = [
     "product-nexta.html",
     "product-ivivi.html",
     "product-template.html",
+    "chuyen-doi-so-phu-lam.html",
 ]
 
 
