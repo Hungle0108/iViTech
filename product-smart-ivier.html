@@ -29,7 +29,7 @@
   <!-- Design System -->
   <link rel="stylesheet" href="css/styles.css">
   <!-- motion-kit head -->
-  <link rel="stylesheet" href="assets/css/motion.css?v=17">
+  <link rel="stylesheet" href="assets/css/motion.css?v=18">
   <script>(function(d){try{if(d.getAttribute('data-motion')==='off'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('motion-ready');setTimeout(function(){if(!window.__ivMotion)d.classList.remove('motion-ready')},2500)}catch(e){}})(document.documentElement)</script>
   <!-- /motion-kit -->
 
@@ -769,11 +769,30 @@
 
         <!-- Embedded Video Showcase (Smart iVier Thực tế) -->
         <div style="margin-top: 48px;">
-          <div class="section-head" style="margin-bottom: 24px;">
+          <div class="section-head" style="margin-bottom: 28px;">
             <span class="eyebrow-pill green"><i class="fas fa-play-circle"></i> Trải nghiệm thực tế</span>
-            <h2 class="section-h2" style="margin-top: 8px;">Video vận hành trợ lý Smart iVier tại cơ sở</h2>
+            <h2 class="section-h2" style="margin-top: 8px;">Video giới thiệu & vận hành Smart iVier</h2>
             <p class="section-desc">Hành trình từ dữ liệu kết nối, AI đồng hành đến điều hành thông minh tại chính quyền cơ sở.</p>
           </div>
+
+          <!-- Video tiêu điểm: Bản thuyết minh lời bình -->
+          <div style="max-width: 880px; margin: 0 auto 36px; background: #ffffff; border: 1.5px solid #bfdbfe; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 32px rgba(0,24,69,0.08);">
+            <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000c1e;">
+              <video controls playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                <source src="assets/video/Smart_iVier_Chuyen_doi_so.mp4" type="video/mp4">
+                Trình duyệt của bạn không hỗ trợ phát thẻ video HTML5.
+              </video>
+            </div>
+            <div style="padding: 16px 22px; background: #f8fafc; border-top: 1px solid var(--border-light); display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+              <div>
+                <span class="eyebrow-pill green" style="font-size: 0.74rem; margin-bottom: 6px;"><i class="fas fa-microphone-lines"></i> Bản thuyết minh có lời bình (5:43)</span>
+                <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary-navy); margin: 0;">Smart iVier – Chuyển đổi số & Điều hành thông minh cấp phường, xã</h3>
+              </div>
+              <span style="font-size: 0.72rem; font-weight: 700; color: #16a34a; background: #dcfce7; padding: 4px 10px; border-radius: 4px; white-space: nowrap; flex-shrink: 0;">Video tiêu điểm</span>
+            </div>
+          </div>
+
+          <!-- Các video tư liệu chuyên sâu khác -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
             <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,24,69,0.06);">
               <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000c1e;">
@@ -1009,6 +1028,6 @@
 
   <script src="assets/js/yt-fallback.js"></script>
   <script src="js/main.js"></script>
-<!-- motion-kit body --><script src="assets/js/motion.js?v=17" defer></script><!-- /motion-kit -->
+<!-- motion-kit body --><script src="assets/js/motion.js?v=18" defer></script><!-- /motion-kit -->
 </body>
 </html>
