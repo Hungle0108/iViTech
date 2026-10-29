@@ -56,6 +56,10 @@ TARGET_PAGES = [
     "product-ivivi.html",
     "product-template.html",
     "chuyen-doi-so-phu-lam.html",
+    "profile.html",
+    "smartivier.html",
+    "profile/index.html",
+    "smartivier/index.html",
 ]
 
 
